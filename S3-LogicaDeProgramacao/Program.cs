@@ -16,6 +16,7 @@ namespace S3_LogicaDeProgramacao
             TiposDeDados(); // Linha 27.
             SaidaDeDados(); // Linha 57.
             OperadoresDeAtribuicao(); // Linha 84.
+            ConversaoImplicitaECasting(); // Linha 130.
 
             // Execução dos exercícios de fixação
 
@@ -125,6 +126,36 @@ namespace S3_LogicaDeProgramacao
 
             // A variável "d" recebe o efeito do "++" e passa a valer 11, porém a variável "e" recebe o valor de "d" antes dele ser incrementado, ficando assim com o valor "10".
             // Isso não ocorreria se usássemos "++d"
+        }
+
+        static void ConversaoImplicitaECasting()
+        {
+            float x = 4.5f;
+            double y = x; // Aqui ocorre uma conversão implícita de float para double e isso é possível porque float possui 4 bytes, e double possui 8 bytes.
+                          // o que significa que um conteúdo float cabe perfeitamente em uma variável do tipo double.
+
+            double a;
+            float b;
+
+            a = 5.1;
+            b = (float)a; // Aqui a situação contrária não funciona pois como o tipo double é maior que o tipo float e portanto um conteúdo double não encaixa em uma variável float.
+            // Podemos "forçar" essa conversão caso queiramos, mas corremos o risco de que se perca informação. Para isso, utilizamos o casting. isso é feito colocando o "(float)".
+            Console.WriteLine(b);
+
+            double c;
+            int d;
+
+            c = 5.1;
+            d = (int)c; // Neste caso além da questão do tamanho em bytes de int ser menor que double, também ocorre o problema de que int não aceita número decimal, e double sim.
+                        // Neste caso houve perda de informação pois o valor atribuído a "d" é 5 e não 5.1
+            Console.WriteLine(d);
+
+            int e = 5;
+            int f = 2;
+
+            double resultado = (double)e / f;
+            Console.WriteLine(resultado); // Neste caso, sem o casting o resultado seria 2 pois ele faz a divisão apenas considerando os valores "int".
+                                          // para não perdermos as casas decimais no resultado devemos usar o casting.
         }
 
         // Exercícios de fixação
