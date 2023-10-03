@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\bin\Debug\S3_LogicaDeProgramacao.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\bin\Debug\S3_LogicaDeProgramacao.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\bin\Debug\S3_LogicaDeProgramacao.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\obj\Debug\S3-LogicaDeProgramacao.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\obj\Debug\S3-LogicaDeProgramacao.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\obj\Debug\S3_LogicaDeProgramacao.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S3-LogicaDeProgramacao\obj\Debug\S3_LogicaDeProgramacao.pdb

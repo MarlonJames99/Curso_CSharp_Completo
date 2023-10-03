@@ -1,0 +1,153 @@
+﻿using System;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace S3_LogicaDeProgramacao
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            TiposDeDados(); // Linha 27.
+            SaidaDeDados(); // Linha 57.
+            OperadoresDeAtribuicao(); // Linha 84.
+
+            // Execução dos exercícios de fixação
+
+            Ex1();
+
+            Console.ReadLine();
+        }
+
+        static void TiposDeDados()
+        {
+            // Tipos de dados do C# - Não são todos, mas são os maios usados.
+
+            sbyte x = 100; //Também pode ser SByte por ser a escrita usada no .Net Framework, incluido no "System". -128 a 127.
+            byte n1 = 126; // não aceita número negativo. 0 a 255.
+            int n2 = 1000;
+            int n3 = 2147483647; // Valor máximo aceito no tipo int.
+            long n4 = 2147483648L; // Permite números ainda maiores que o int, é recomendado colocar o L no final pra indicar que é do tipo long.
+            bool completo = false;
+            char genero = 'f'; // character deve ser colocado entre aspas simples.
+            char letra = '\u0041'; // Usando código unicode podemos representar qualquer caracter existente.
+            float n5 = 4.5f; // Float deve ter a letra f no final do número.
+            double n6 = 4.6;
+            string nome = "Maria"; // String requer uso de aspas duplas.
+            object obj1 = "MJRC"; // Tipo genérico.
+
+            // Podemos pegar o menor e o maior valor de um tipo de dado usando as propriedades MinValue e MaxValue.
+
+            int n7 = int.MinValue;
+            int n8 = int.MaxValue;
+            sbyte n9 = sbyte.MinValue;
+            decimal n10 = decimal.MaxValue;
+
+            Console.WriteLine(n7);
+            Console.WriteLine(n8);
+            Console.WriteLine(n9);
+            Console.WriteLine(n10);
+        }
+
+        static void SaidaDeDados()
+        {
+            char genero = 'F';
+            int idade = 24;
+            double saldo = 10.35679;
+            string nome = "Maria";
+
+
+            Console.Write("Bom dia!"); // Não pula linha ao final
+            Console.WriteLine("Boa tarde!"); // Pula linha ao final
+            Console.WriteLine("Boa noite!");
+            Console.WriteLine(genero);
+            Console.WriteLine(idade);
+            Console.WriteLine(saldo);
+            Console.WriteLine(nome);
+            Console.WriteLine(saldo.ToString("F2")); // F2 faz com que tenha somente duas casas decimais, arredondando o valor. Se quisesse 3 casas usaria F3...
+            Console.WriteLine(saldo.ToString("F2", CultureInfo.InvariantCulture)); // Faz com que os decimais sejam separados com "." e não "," pois remove a regionalização.
+
+            // Placehoolders, concatenação e interpolação.
+
+            Console.WriteLine("{0} tem {1} anos e tem saldo igual a {2:F2} reais.", nome, idade, saldo); // Placeholder
+
+            Console.WriteLine($"{nome} tem {idade} anos e tem saldo igual a {saldo:F2} reais."); // Interpolação
+
+            Console.WriteLine(nome + " tem " + idade + " anos e tem saldo igual a " + saldo.ToString("F2", CultureInfo.InvariantCulture) + " reais."); // Concatenação
+        }
+
+        static void OperadoresDeAtribuicao()
+        {
+
+            int x = 10; // isso é dizer que o "x" recebe "10". o operador "=" serve para atribuir um valor a uma variável.
+            x += 2; // "x" recebe x + 2. Receberá o próprio valor de "x" somando 2. O mesmo que escrever "x = x + 2".
+            x -= 2; // "x" recebe x - 2. Receberá o valor de "x" subtraindo 2. O mesmo que escrever "x = x - 2".
+            x *= 2; // "x" recebe x * 2. Receberá o valor de "x" multiplicado por 2. O mesmo que escrever "x = x * 2".
+            x /= 2; // "x" recebe x / 2. Receberá o valor de "x" dividido por 2. O mesmo que escrever "x = x / 2".
+            x %= 3; // "x" recebe x % 3. Receberá o valor do módulo de "x". O mesmo que escrever "x = x % 3". 
+
+            Console.WriteLine(x);
+
+            int a = 10;
+            Console.WriteLine(a);
+
+            a += 2;
+            Console.WriteLine(a);
+
+            a *= 3;
+            Console.WriteLine(a);
+
+            string s = "ABC";
+            Console.WriteLine(s);
+
+            s += "DEF";
+            Console.WriteLine(s); // Concatenação cumulativa de strings.
+
+            int b = 10; 
+            b++; // "b" recebe o valor de "b" + 1. Também podemos usar "++b" 
+            Console.WriteLine(b);
+
+            int c = 10;
+            c--; // "c" recebe o valor de "c" - 1. Também podemos usar "--c"
+            Console.WriteLine(c);
+
+            // ao utilizar ++a ou a++ a unica diferença é a ordem de execução que pode ocasionar em diferenças ao atribuir este valor a outra variável, como no exemplo abaixo.
+
+            int d = 10;
+            int e = d++;
+            Console.WriteLine(d);
+            Console.WriteLine(e);
+
+            // A variável "d" recebe o efeito do "++" e passa a valer 11, porém a variável "e" recebe o valor de "d" antes dele ser incrementado, ficando assim com o valor "10".
+            // Isso não ocorreria se usássemos "++d"
+        }
+
+        // Exercícios de fixação
+        static void Ex1()
+        {
+            string produto1 = "Computador";
+            string produto2 = "Mesa de escritório";
+
+            byte idade = 24;
+            int codigo = 5290;
+            char genero = 'M';
+
+            double preco1 = 2100.0;
+            double preco2 = 650.50;
+            double medida = 53.234567;
+
+            Console.WriteLine("Produtos:");
+            Console.WriteLine($"{produto1}, cujo preço é ${preco1:F2}");
+            Console.WriteLine($"{produto2}, cujo preço é ${preco2:F2}\n");
+            Console.WriteLine($"Registro: {idade} anos de idade, código {codigo} e gênero: {genero}\n");
+            Console.WriteLine($"Medida com oito casas decimais: {medida:F8}");
+            Console.WriteLine($"Arredondado (três casas decimais): {medida:F3}");
+            Console.WriteLine("Separador decimal invariant culture: " + medida.ToString("F3", CultureInfo.InvariantCulture));
+        }
+    }
+}
