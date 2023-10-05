@@ -13,10 +13,11 @@ namespace S3_LogicaDeProgramacao
         static void Main(string[] args)
         {
 
-            TiposDeDados(); // Linha 27.
-            SaidaDeDados(); // Linha 57.
-            OperadoresDeAtribuicao(); // Linha 84.
-            ConversaoImplicitaECasting(); // Linha 130.
+            TiposDeDados(); // Linha .
+            SaidaDeDados(); // Linha .
+            OperadoresDeAtribuicao(); // Linha .
+            ConversaoImplicitaECasting(); // Linha .
+            OperadoresAritmeticos(); // Linha .
 
             // Execução dos exercícios de fixação
 
@@ -124,42 +125,94 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine(d);
             Console.WriteLine(e);
 
-            // A variável "d" recebe o efeito do "++" e passa a valer 11, porém a variável "e" recebe o valor de "d" antes dele ser incrementado, ficando assim com o valor "10".
-            // Isso não ocorreria se usássemos "++d"
+            /*
+            A variável "d" recebe o efeito do "++" e passa a valer 11, porém a variável "e" recebe o valor de "d" antes dele ser incrementado, ficando assim com o valor "10".
+            Isso não ocorreria se usássemos "++d"
+            */
         }
 
         static void ConversaoImplicitaECasting()
         {
             float x = 4.5f;
-            double y = x; // Aqui ocorre uma conversão implícita de float para double e isso é possível porque float possui 4 bytes, e double possui 8 bytes.
-                          // o que significa que um conteúdo float cabe perfeitamente em uma variável do tipo double.
+            double y = x; /* Aqui ocorre uma conversão implícita de float para double e isso é possível porque float possui 4 bytes, e double possui 8 bytes.
+                             O que significa que um conteúdo float cabe perfeitamente em uma variável do tipo double. */
 
             double a;
             float b;
 
             a = 5.1;
-            b = (float)a; // Aqui a situação contrária não funciona pois como o tipo double é maior que o tipo float e portanto um conteúdo double não encaixa em uma variável float.
-            // Podemos "forçar" essa conversão caso queiramos, mas corremos o risco de que se perca informação. Para isso, utilizamos o casting. isso é feito colocando o "(float)".
+            b = (float)a; /* Aqui a situação contrária não funciona pois como o tipo double é maior que o tipo float e portanto um conteúdo double não encaixa em uma variável float.
+            Podemos "forçar" essa conversão caso queiramos, mas corremos o risco de que se perca informação. Para isso, utilizamos o casting. isso é feito colocando o "(float)". */
             Console.WriteLine(b);
 
             double c;
             int d;
 
             c = 5.1;
-            d = (int)c; // Neste caso além da questão do tamanho em bytes de int ser menor que double, também ocorre o problema de que int não aceita número decimal, e double sim.
-                        // Neste caso houve perda de informação pois o valor atribuído a "d" é 5 e não 5.1
+            d = (int)c; /* Neste caso além da questão do tamanho em bytes de int ser menor que double, também ocorre o problema de que int não aceita número decimal, e double sim.
+                           Neste caso houve perda de informação pois o valor atribuído a "d" é 5 e não 5.1 */
             Console.WriteLine(d);
 
             int e = 5;
             int f = 2;
 
             double resultado = (double)e / f;
-            Console.WriteLine(resultado); // Neste caso, sem o casting o resultado seria 2 pois ele faz a divisão apenas considerando os valores "int".
-                                          // para não perdermos as casas decimais no resultado devemos usar o casting.
+            Console.WriteLine(resultado); /* Neste caso, sem o casting o resultado seria 2 pois ele faz a divisão apenas considerando os valores "int".
+                                             Para não perdermos as casas decimais no resultado devemos usar o casting. */
+        }
+
+        static void OperadoresAritmeticos()
+        {
+            /* 
+            Adição (+)
+            Subtração (-)
+            Multiplicação (*)
+            Divisão (/)
+            Resto da divisão, também chamado de mod (%)
+
+            Assim como na matemática tradicional, a *, / e % possuem prioridade na ordem do cálculo em relação à + e -.
+            Se quisermos dar prioridade a uma determinada operação devemos colocar entre ().
+            */
+
+            int n1 = 3 + 4 * 2;
+            int n2 = (3 + 4) * 2;
+
+            Console.WriteLine(n1);
+            Console.WriteLine(n2);
+
+            int n3 = 17 % 3; // 17/3 é igual a 5 e sobram 2. O resto da divisão é 2.
+            Console.WriteLine(n3);
+
+            /* 
+            Se realizarmos uma operação entre números inteiros e o resultado for um número com casas decimais, o compilador só irá retornar o resultado inteiro.
+            Isso ocorre pois como ambos números são inteiros ele entende que queremos realizar uma operação do tipo inteiro.
+            Para resolver isso podemos utilizar o casting ou formatar um dos números com casas decimais
+            */
+
+            double n4 = 10 / 8;
+            double n5 = 10.0 / 8; // No mínimo um dos dois números deve ter casas decimais (.0), não é obrigatório que ambos tenham.
+            double n6 = (double) 10 / 8;
+
+            Console.WriteLine(n4);
+            Console.WriteLine(n5);
+            Console.WriteLine(n6);
+
+            // Cálculo da fórmula de Bhaskara
+
+            double a = 1.0, b = -3.0, c = -4.0;
+
+            double delta = Math.Pow(b, 2.0) - 4.0 * a * c; // A função "Math.Pow" é usada para cálculo de potência, no qual o primeiro número é a base e o segundo é o expoente.
+
+            double x1 = (-b + Math.Sqrt(delta)) / (2.0 * a); // A função "Math.Sqrt" é usada para extrair a raiz quadrada de algo.
+            double x2 = (-b - Math.Sqrt(delta)) / (2.0 * a);
+
+            Console.WriteLine(delta);
+            Console.WriteLine(x1);
+            Console.WriteLine(x2);
         }
 
         // Exercícios de fixação
-        static void Ex1()
+        static void Ex1() // Exercício de saída de dados.
         {
             string produto1 = "Computador";
             string produto2 = "Mesa de escritório";
