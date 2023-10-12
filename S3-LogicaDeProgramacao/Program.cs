@@ -12,16 +12,27 @@ namespace S3_LogicaDeProgramacao
 
         static void Main(string[] args)
         {
-
+            
             TiposDeDados(); // Linha .
             SaidaDeDados(); // Linha .
             OperadoresDeAtribuicao(); // Linha .
             ConversaoImplicitaECasting(); // Linha .
             OperadoresAritmeticos(); // Linha .
+            EntradaDeDados(); // Linha .
 
             // Execução dos exercícios de fixação
 
             Ex1();
+            Ex2();
+
+            // Execução dos exercícios propostos 1 - Entrada de dados.
+
+            ExP1();
+            ExP2();
+            ExP3();
+            ExP4();
+            ExP5();
+            ExP6();
 
             Console.ReadLine();
         }
@@ -211,9 +222,61 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine(x2);
         }
 
+        static void EntradaDeDados()
+        {
+            /* 
+            Aqui vemos a entrada de dados a partir do uso do teclado do usuário. 
+            Ele lê desdo a entrada padrão a té a quebra de linha.
+            Retorna os dados em formato de string. 
+            */
+
+            // Parte 1.
+            string frase = Console.ReadLine();
+            string x = Console.ReadLine();
+            string y = Console.ReadLine();
+            string z = Console.ReadLine();
+
+            string[] v = Console.ReadLine().Split(' '); // Realiza um split entre as palavras digitadas utilizando o ' ' como ponto de separação, e armazena no vetor "v".
+            string a = v[0]; // Aqui estou definindo que o dado armazenado na posição 0 do vetor "v" será armazenado na variável "a".
+            string b = v[1];
+            string c = v[2];
+
+            Console.WriteLine("Você digitou: ");
+            Console.WriteLine(frase);
+            Console.WriteLine(x);
+            Console.WriteLine(y);
+            Console.WriteLine(z);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+            // Parte 2.
+
+            int n1 = int.Parse(Console.ReadLine()); // int.Parse converte o dado recebido para o tipo "int".
+            char ch = char.Parse(Console.ReadLine());
+            double n2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); // Desta forma podemos informar o número double separado por "." em lugar da ",".
+
+            string[] vet = Console.ReadLine().Split(' ');
+            string nome = vet[0];
+            char sexo = char.Parse(vet[1]);
+            int idade = int.Parse(vet[2]);
+            double altura = double.Parse(vet[3], CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Você digitou: ");
+            Console.WriteLine(n1);
+            Console.WriteLine(ch);
+            Console.WriteLine(n2.ToString("F2", CultureInfo.InvariantCulture)); // Fazemos com que o número double venha com o "." como separador.
+            Console.WriteLine(nome);
+            Console.WriteLine(sexo);
+            Console.WriteLine(idade);
+            Console.WriteLine(altura.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
         // Exercícios de fixação
         static void Ex1() // Exercício de saída de dados.
         {
+            // Fazer um programa e iniciar as seguintes variáveis: 
+
             string produto1 = "Computador";
             string produto2 = "Mesa de escritório";
 
@@ -225,6 +288,8 @@ namespace S3_LogicaDeProgramacao
             double preco2 = 650.50;
             double medida = 53.234567;
 
+            // Em seguida, usando os valores das variáveis, produza a seguintes saída na tela do console:
+
             Console.WriteLine("Produtos:");
             Console.WriteLine($"{produto1}, cujo preço é ${preco1:F2}");
             Console.WriteLine($"{produto2}, cujo preço é ${preco2:F2}\n");
@@ -232,6 +297,176 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine($"Medida com oito casas decimais: {medida:F8}");
             Console.WriteLine($"Arredondado (três casas decimais): {medida:F3}");
             Console.WriteLine("Separador decimal invariant culture: " + medida.ToString("F3", CultureInfo.InvariantCulture));
+        }
+
+        static void Ex2() // Exercício de entrada de dados.
+        {
+            /*
+            Fazer um programa para ler os dados, nome completo, quantidade de quartos, preço de algum produto além de último nome, idade e altura (estes em apenas uma linha).
+            e depois mostrar os dados na tela.
+            */
+            
+            Console.WriteLine("Entre com seu nome completo: ");
+            string nome = Console.ReadLine();
+
+            Console.WriteLine("Quantos quartos tem na sua casa? ");
+            int quartos = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Entre com o preço de um produto ");
+            double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Entre com seu último nome, idade e altura (mesma linha): ");
+            string[] v = Console.ReadLine().Split(' ');
+            string ultimoNome = v[0];
+            int idade = int.Parse(v[1]);
+            double altura = double.Parse(v[2], CultureInfo.InvariantCulture);
+
+            Console.WriteLine(nome);
+            Console.WriteLine(quartos);
+            Console.WriteLine(preco.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine(ultimoNome);
+            Console.WriteLine(idade);
+            Console.WriteLine(altura.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        // PDF de Exercícios propostos 1 - Estrutura senquencial
+        static void ExP1()
+        {
+            // Faça um programa para ler dois valores inteiros, e depois mostrar na tela a soma desses números com uma mensagem explicativa.
+
+            int a, b, soma;
+
+            Console.WriteLine("Entre com o primeiro valor: ");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com o segundo valor: ");
+            b = int.Parse(Console.ReadLine());
+
+            soma = a + b;
+
+            Console.WriteLine("SOMA = " + soma);
+        }
+
+        static void ExP2()
+        {
+            // Faça um programa para ler o valor do raio de um círculo, e depois mostrar o valor da área deste círculo com quatro casas decimais.
+
+            double R, A, PI = 3.14159;
+
+            Console.WriteLine("Entre com o valor do raio: ");
+            R = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            A = PI * Math.Pow(R, 2.0);
+
+            Console.WriteLine("A=" + A.ToString("F4", CultureInfo.InvariantCulture));
+        }
+
+        static void ExP3()
+        {
+            /*
+            Fazer um programa para ler quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto 
+            de A e B pelo produto de C e D segundo a fórmula: DIFERENCA = (A * B - C * D).
+            */
+
+            int A, B, C, D, diferenca;
+
+            Console.WriteLine("Digite o primeiro valor: ");
+            A = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o segundo valor: ");
+            B = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o terceiro valor: ");
+            C = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o quarto valor: ");
+            D = int.Parse(Console.ReadLine());
+
+            diferenca = A * B - C * D;
+            Console.WriteLine("DIFERENÇA = " + diferenca);
+        }
+
+        static void ExP4()
+        {
+            /*
+            Fazer um programa que leia o número de um funcionário, seu número de horas trabalhadas, o valor que recebe por
+            hora e calcula o salário desse funcionário. A seguir, mostre o número e o salário do funcionário, com duas casas decimais. 
+            */
+
+            int idFuncionario, horasTrabalhadas;
+            double salarioHora, salario;
+
+            Console.WriteLine("Qual o ID do funcionário? ");
+            idFuncionario = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Quantas horas o funcionário trabalhou? ");
+            horasTrabalhadas = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Quanto o funcionário recebe por hora? ");
+            salarioHora = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            salario = horasTrabalhadas * salarioHora;
+
+            Console.WriteLine("ID do Funcionário: " + idFuncionario);
+            Console.WriteLine("Salário: R$" + salario.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static void ExP5()
+        {
+            /*
+            Fazer um programa para ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o
+            código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Calcule e mostre o valor a ser pago.
+            */
+
+            int peca1, peca2, qtdPeca1, qtdPeca2;
+            double precoPeca1, precoPeca2, valorTotal;
+
+            Console.WriteLine("Digite o código, a quantidade e o preço da peça: ");
+            string[] valores = Console.ReadLine().Split(' ');
+            peca1 = int.Parse(valores[0]);
+            qtdPeca1 = int.Parse(valores[1]);
+            precoPeca1 = double.Parse(valores[2], CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Digite o código, a quantidade e o preço da peça: ");
+            valores = Console.ReadLine().Split(' ');
+            peca2 = int.Parse(valores[0]);
+            qtdPeca2 = int.Parse(valores[1]);
+            precoPeca2 = double.Parse(valores[2], CultureInfo.InvariantCulture);
+
+            valorTotal = qtdPeca1 * precoPeca1 + qtdPeca2 * precoPeca2;
+
+            Console.WriteLine("Valor a pagar: R$" + valorTotal.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static void ExP6()
+        {
+            /*
+            Fazer um programa que leia três valores com ponto flutuante de dupla precisão: A, B e C. Em seguida, calcule e mostre:
+            a) a área do triângulo retângulo que tem A por base e C por altura.
+            b) a área do círculo de raio C. (pi = 3.14159)
+            c) a área do trapézio que tem A e B por bases e C por altura.
+            d) a área do quadrado que tem lado B.
+            e) a área do retângulo que tem lados A e B.
+            */
+
+            double A, B , C, areaTriangulo, areaCirculo, areaTrapezio, areaQuadrado, areaRetangulo, PI = 3.14159;
+
+            Console.WriteLine("Digite 3 valores: ");
+            string[] v = Console.ReadLine().Split(' ');
+            A = double.Parse(v[0], CultureInfo.InvariantCulture);
+            B = double.Parse(v[1], CultureInfo.InvariantCulture);
+            C = double.Parse(v[2], CultureInfo.InvariantCulture);
+
+            areaTriangulo = A * C / 2.0;
+            areaCirculo = PI * Math.Pow(C, 2.0);
+            areaTrapezio = (A + B) * C / 2;
+            areaQuadrado = Math.Pow(B, 2.0);
+            areaRetangulo = A * B;
+
+            Console.WriteLine("Triângulo: " + areaTriangulo.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine("Círculo: " + areaCirculo.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine("Trapézio: " + areaTrapezio.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine("Quadrado: " + areaQuadrado.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine("Retângulo: " + areaRetangulo.ToString("F3", CultureInfo.InvariantCulture));
         }
     }
 }
