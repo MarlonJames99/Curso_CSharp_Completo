@@ -19,6 +19,8 @@ namespace S3_LogicaDeProgramacao
             ConversaoImplicitaECasting(); // Linha .
             OperadoresAritmeticos(); // Linha .
             EntradaDeDados(); // Linha .
+            OperadoresComparativos(); // Linha .
+            OperadoresLogicos(); // Linha .
 
             // Execução dos exercícios de fixação
 
@@ -53,6 +55,19 @@ namespace S3_LogicaDeProgramacao
             double n6 = 4.6;
             string nome = "Maria"; // String requer uso de aspas duplas.
             object obj1 = "MJRC"; // Tipo genérico.
+
+            Console.WriteLine(x);
+            Console.WriteLine(n1);
+            Console.WriteLine(n2);
+            Console.WriteLine(n3);
+            Console.WriteLine(n4);
+            Console.WriteLine(completo);
+            Console.WriteLine(genero);
+            Console.WriteLine(letra);
+            Console.WriteLine(n5);
+            Console.WriteLine(n6);
+            Console.WriteLine(nome);
+            Console.WriteLine(obj1);
 
             // Podemos pegar o menor e o maior valor de um tipo de dado usando as propriedades MinValue e MaxValue.
 
@@ -270,6 +285,68 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine(sexo);
             Console.WriteLine(idade);
             Console.WriteLine(altura.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static void OperadoresComparativos()
+        {
+            /*
+            > - Maior
+            < - Menor
+            >= - Maior ou igual
+            <= - Menor ou igual
+            == - Igual
+            != - Diferente
+            */
+
+            int a = 10;
+            bool c1 = a < 10;
+            bool c2 = a < 20;
+            bool c3 = a > 10;
+            bool c4 = a > 5;
+            bool c5 = a <= 10;
+            bool c6 = a >= 10;
+            bool c7 = a == 10;
+            bool c8 = a != 10;
+
+            Console.WriteLine(c1);
+            Console.WriteLine(c2);
+            Console.WriteLine(c3);
+            Console.WriteLine(c4);
+            Console.WriteLine(c5);
+            Console.WriteLine(c6);
+            Console.WriteLine(c7);
+            Console.WriteLine(c8);
+        }
+
+        static void OperadoresLogicos()
+        {
+            /*
+            && - E - Esta condicional só resulta em verdadeira quando ambas as condições são verdadeiras (v e v = v), em qualquer outro caso resultará em false.
+            || - Ou - Esta condicional resultará em verdadeira caso ao menos 1 das condições seja verdadeira (v ou f = v), só será false caso ambas condições sejam false. 
+            ! - Não
+
+            Os operadores possuem ordem de prioridade na execução, seguindo a seguinte ordem: ! > && > ||
+            Podem-se usar os () para lidar com a questão da prioridade na execução.
+            */
+
+            bool c1 = 2 > 3 && 4 != 5;
+            bool c2 = 2 > 3 || 4 != 5;
+
+            Console.WriteLine(c1);
+            Console.WriteLine(c2);
+
+            bool c3 = 2 > 3 || 4 != 5; // True
+            bool c4 = !(2 > 3) && 4 != 5; // True
+
+            Console.WriteLine(c3);
+            Console.WriteLine(c4);
+
+            bool c5 = 10 < 5; // False
+            bool c6 = c3 || c4 && c5; // True
+                                      // Primeiro foi resolvido o && (que deu false) depois se resolveu o || (que deu true).
+
+            Console.WriteLine(c5);
+            Console.WriteLine(c6);  
         }
 
         // Exercícios de fixação
