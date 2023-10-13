@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace S3_LogicaDeProgramacao
 {
@@ -21,13 +22,15 @@ namespace S3_LogicaDeProgramacao
             EntradaDeDados(); // Linha .
             OperadoresComparativos(); // Linha .
             OperadoresLogicos(); // Linha .
+            EstruturasCondicionais(); // Linha .
+            Escopo(); // Linha . 
 
             // Execução dos exercícios de fixação
 
             Ex1();
             Ex2();
 
-            // Execução dos exercícios propostos 1 - Entrada de dados.
+            // Execução dos exercícios propostos 1 - Estrutura sequencial.
 
             ExP1();
             ExP2();
@@ -35,6 +38,17 @@ namespace S3_LogicaDeProgramacao
             ExP4();
             ExP5();
             ExP6();
+
+            // Execução dos exercícios propostos 2 - Estrutura condicional.
+
+            ExP7();
+            ExP8();
+            ExP9();
+            ExP10();
+            ExP11();
+            ExP12();
+            ExP13();
+            ExP14();
 
             Console.ReadLine();
         }
@@ -349,6 +363,76 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine(c6);  
         }
 
+        static void EstruturasCondicionais()
+        {
+            /*
+            if (condição) { comandos } - Uma condição que se for verdadeira executará os comandos em sequência.
+            else if (condição 2/3/4...) { comandos } - Caso queiramos dar outras possibilidades (encadeamento) podemos criar outras condições com o comando "else if".
+            else { comandos } - Este pode ser colocado ao final e basicamente será executado em caso de que nenhuma das condicionais anteriores tenha sido executada.
+
+            Se o bloco condicional possuir apenas 1 comando a ser executado, o uso das {} se torna opcional.
+            */
+
+            // Simples
+
+            int a = 10;
+
+            if (a == 10)
+            {
+                Console.WriteLine("A variável vale 10!");
+            }
+
+            //Composta
+
+            Console.WriteLine("Entre com um número inteiro: ");
+            int x = int.Parse(Console.ReadLine());
+
+            if (x % 2 == 0)
+            {
+                Console.WriteLine("Par!");
+            }
+            else
+            {
+                Console.WriteLine("Ímpar!");
+            }
+
+            // Encadeamentos
+
+            Console.WriteLine("Qual a hora atual?");
+            int hora = int.Parse(Console.ReadLine());
+
+            if (hora < 12)
+            {
+                Console.WriteLine("Bom dia!");
+            }
+            else if (hora < 18)
+            {
+                Console.WriteLine("Boa tarde!");
+            }
+            else
+            {
+                Console.WriteLine("Boa noite!");
+            }
+        }
+
+        static void Escopo()
+        {
+            /*
+            O Escopo de uma variável é a região do programa onde a variável é válida, ou seja, onde ela pode ser referenciada.
+            Uma variável não pode ser usada se não for iniciada.
+            */ 
+
+            double preco = double.Parse(Console.ReadLine());
+            double desconto = 0.0;
+
+            if (preco == 100.0)
+            {
+                desconto = preco * 0.1; // Aqui podemos utilizar as variáveis preco e desconto porque elas foram iniciadas no escopo maior (escopo da função).
+            }                           
+
+            Console.WriteLine(desconto); // Se elas houvessem sido iniciadas apenas dentro do if, não poderiamos exibi-la aqui no escopo principal.
+        }
+
         // Exercícios de fixação
         static void Ex1() // Exercício de saída de dados.
         {
@@ -544,6 +628,124 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine("Trapézio: " + areaTrapezio.ToString("F3", CultureInfo.InvariantCulture));
             Console.WriteLine("Quadrado: " + areaQuadrado.ToString("F3", CultureInfo.InvariantCulture));
             Console.WriteLine("Retângulo: " + areaRetangulo.ToString("F3", CultureInfo.InvariantCulture));
+        }
+
+        // PDF de Exercícios propostos 2 - Estrutura condicional
+        static void ExP7()
+        {
+            // Fazer um programa para ler um número inteiro, e depois dizer se este número é negativo ou não.
+
+            Console.WriteLine("Digite um número inteiro: ");
+            int a = int.Parse(Console.ReadLine());
+
+            if (a < 0)
+            {
+                Console.WriteLine("Negativo");
+            }
+            else
+            {
+                Console.WriteLine("Não negativo");
+            }
+        }
+
+        static void ExP8()
+        {
+            // Fazer um programa para ler um número inteiro e dizer se este número é par ou ímpar
+
+            Console.WriteLine("Digite um número inteiro:");
+            int a = int.Parse(Console.ReadLine());
+
+            if (a % 2 == 0)
+            {
+                Console.WriteLine("Par");
+            }
+            else 
+            {
+                Console.WriteLine("Ímpar");
+            }
+        }
+
+        static void ExP9()
+        {
+            /*
+            Leia 2 valores inteiros (A e B). Após, o programa deve mostrar uma mensagem "são multiplos" ou "não são multiplos", indicando se os valores lidos são múltiplos entre si.
+            Os números devem poder ser digitados em ordem crescente ou decrescente.
+            */
+
+            Console.WriteLine("Digite dois valores:");
+            string[] valores = Console.ReadLine().Split(' ');
+            int A = int.Parse(valores[0]);
+            int B = int.Parse(valores[1]);
+
+            if (A % B == 0 || B % A == 0)
+            {
+                Console.WriteLine("São múltiplos");
+            }
+            else
+            {
+                Console.WriteLine("Não são múltiplos");
+            }
+        }
+
+        static void ExP10()
+        {
+            /*
+            Leia a hora inicial e a hora final de um jogo.
+            A seguir calcule a duração do jogo, sabendo que o mesmo pode começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.
+            */
+        }
+
+        static void ExP11()
+        {
+            /*
+            Com base na tabela abaixo, escreva um programa que leia o código de um item e quantidade deste item. A seguir, calcule e mostre o valor da conta a pagar.
+
+            Código          -            Especificação           -           Preço
+              1                         Cachorro quente                      R$4.00
+              2                            X-Salada                          R$4.50
+              3                            X-Bacon                           R$5.00
+              4                         Torrada simples                      R$2.00
+              5                           Refrigerante                       R$1.50
+            */
+        }
+
+        static void ExP12()
+        {
+            /*
+            Você deve fazer um programa que leia um valor qualquer e apresente uma mensagem dizendo em qual dos seguintes intervalos ([0,25], [25,50], [50,75], [75,100]) este valor está.
+            Obviamente se o valor não estiver em nenhum destes intervalos, deverá ser impressa a mensagem "Fora do intervalo".
+            */
+
+        }
+
+        static void ExP13()
+        {
+            /*
+            Leia 2 valores com uma casa decial (x e y), que devem representar as coordenadas de um ponto em um plano. 
+            A seguir, determine qual o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos ou na origem (x = y = 0).
+
+            Se o ponto estiver na origem, escreva a mensagem "origem".
+
+            Se o ponto estiver sobre um dos eixos escreve "Eixo X" ou "Eixo Y", conforme for a situação.
+            */
+        }
+
+        static void ExP14()
+        {
+            /*
+            Em um país imaginário denominado Lisarb, todos os habitantes ficam felizes em pagar seus impostos, 
+            pois sabem que nele não existem políticos corruptos e os recursos arrecadados são utilizados em benefício da população, sem qualquer desvio.
+            A moeda deste páis é o Rombus, cujo símbolo é o R$.
+
+            Leia um valor com duas casas decimais, equivalente ao salário de uma pessoa de Lisarb. 
+            Em seguida, calcule e mostre o valor que esta pessoa deve pagar de Imposto de Renda, segundo a tabela abaixo.
+
+                    Renda           -          Álíquota do Imposto
+              de R$0.00 a R$2000.00                   Isento
+            de R$2000.01 a R$3000.00                    8%
+            de R$3000.01 a R$4500.00                    18%
+               acima de R$4500.00                       28%
+            */
         }
     }
 }
