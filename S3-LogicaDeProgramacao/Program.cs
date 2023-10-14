@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Net;
 
 namespace S3_LogicaDeProgramacao
 {
@@ -693,6 +694,24 @@ namespace S3_LogicaDeProgramacao
             Leia a hora inicial e a hora final de um jogo.
             A seguir calcule a duração do jogo, sabendo que o mesmo pode começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.
             */
+
+            Console.WriteLine("Digite a hora inicial e final do jogo:");
+            string[] hora = Console.ReadLine().Split(' ');
+            int horaInicial = int.Parse(hora[0]);
+            int horaFinal = int.Parse(hora[1]);
+
+            int duracao;
+
+            if (horaInicial < horaFinal)
+            {
+                duracao = horaFinal - horaInicial;
+            }
+            else
+            {
+                duracao = 24 - horaInicial + horaFinal;
+            }
+
+            Console.WriteLine($"O jogo durou {duracao} hora(s)");
         }
 
         static void ExP11()
@@ -707,6 +726,36 @@ namespace S3_LogicaDeProgramacao
               4                         Torrada simples                      R$2.00
               5                           Refrigerante                       R$1.50
             */
+
+            Console.WriteLine("Digite o código e a quantidade do item:");
+            string[] valores = Console.ReadLine().Split(' ');
+            int codigo = int.Parse(valores[0]);
+            int quantidade = int.Parse(valores[1]);
+
+            double preco;
+
+            if (codigo == 1)
+            {
+                preco = quantidade * 4.00;
+            }
+            else if (codigo == 2)
+            {
+                preco = quantidade * 4.50;
+            }
+            else if (codigo == 3)
+            {
+                preco = quantidade * 5.00;
+            }
+            else if (codigo == 4)
+            {
+                preco = quantidade * 2.00;
+            }
+            else
+            {
+                preco = quantidade * 1.50;
+            }
+
+            Console.WriteLine($"Total: R${preco.ToString("F2", CultureInfo.InvariantCulture)}");
         }
 
         static void ExP12()
@@ -716,18 +765,75 @@ namespace S3_LogicaDeProgramacao
             Obviamente se o valor não estiver em nenhum destes intervalos, deverá ser impressa a mensagem "Fora do intervalo".
             */
 
+            Console.WriteLine("Insira um valor:");
+            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            if (valor < 0.00 || valor > 100.00)
+            {
+                Console.WriteLine("Fora de intervalo");
+            }
+            else if (valor <= 25)
+            {
+                Console.WriteLine("Intervalo [0,25]");
+            }
+            else if (valor <= 50)
+            {
+                Console.WriteLine("Intervalo [25,50]");
+            }
+            else if (valor <= 75)
+            {
+                Console.WriteLine("Intervalo [50,75]");
+            }
+            else
+            {
+                Console.WriteLine("Intervalo [75,100]");
+            }
         }
 
         static void ExP13()
         {
             /*
-            Leia 2 valores com uma casa decial (x e y), que devem representar as coordenadas de um ponto em um plano. 
+            Leia 2 valores com uma casa decimal (x e y), que devem representar as coordenadas de um ponto em um plano. 
             A seguir, determine qual o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos ou na origem (x = y = 0).
 
             Se o ponto estiver na origem, escreva a mensagem "origem".
 
             Se o ponto estiver sobre um dos eixos escreve "Eixo X" ou "Eixo Y", conforme for a situação.
             */
+
+            Console.WriteLine("Digite o valor de x e de y:");
+            string[] valores = Console.ReadLine().Split(' ');
+            double x = double.Parse(valores[0], CultureInfo.InvariantCulture);
+            double y = double.Parse(valores[1], CultureInfo.InvariantCulture);
+
+            if (x == 0 && y == 0)
+            {
+                Console.WriteLine("Origem");
+            }
+            else if (x == 0)
+            {
+                Console.WriteLine("Eixo Y");
+            }
+            else if (y == 0)
+            {
+                Console.WriteLine("Eixo X");
+            }
+            else if (x > 0 && y > 0)
+            {
+                Console.WriteLine("Q1");
+            }
+            else if (x < 0 && y > 0)
+            {
+                Console.WriteLine("Q2");
+            }
+            else if (x < 0 && y < 0)
+            {
+                Console.WriteLine("Q3");
+            }
+            else
+            {
+                Console.WriteLine("Q4");
+            }
         }
 
         static void ExP14()
@@ -746,6 +852,37 @@ namespace S3_LogicaDeProgramacao
             de R$3000.01 a R$4500.00                    18%
                acima de R$4500.00                       28%
             */
+
+            Console.WriteLine("Digite seu salário:");
+            double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double imposto;
+
+            if (salario <= 2000.00)
+            {
+                imposto = 0.00;
+            }
+            else if (salario <= 3000.00)
+            {
+                imposto = (salario - 2000.00) * 0.08;
+            }
+            else if (salario <= 4500.00)
+            {
+                imposto = (salario - 3000.00) * 0.18 + 1000.00 * 0.08;
+            }
+            else
+            {
+                imposto = (salario - 4500.00) * 0.28 + 1500.00 * 0.18 + 1000.00 * 0.08;
+            }
+
+            if (imposto == 0)
+            {
+                Console.WriteLine("Isento");
+            }
+            else
+            {
+                Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
+            }
         }
     }
 }
