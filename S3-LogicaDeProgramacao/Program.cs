@@ -25,6 +25,9 @@ namespace S3_LogicaDeProgramacao
             OperadoresLogicos(); // Linha .
             EstruturasCondicionais(); // Linha .
             Escopo(); // Linha . 
+            Funcoes(); // Linha .
+            Debbuging(); // Linha .
+            While(); // Linha .
 
             // Execução dos exercícios de fixação
 
@@ -50,6 +53,12 @@ namespace S3_LogicaDeProgramacao
             ExP12();
             ExP13();
             ExP14();
+
+            // Execução dos exercícios propostos 3 - Estrutura de repetição "While".
+
+            ExP15();
+            ExP16();
+            ExP17();
 
             Console.ReadLine();
         }
@@ -432,6 +441,111 @@ namespace S3_LogicaDeProgramacao
             }                           
 
             Console.WriteLine(desconto); // Se elas houvessem sido iniciadas apenas dentro do if, não poderiamos exibi-la aqui no escopo principal.
+        }
+
+        static void Funcoes()
+        {
+            /*
+            Representam um processamento que possui um significado.
+            Math.Sqrt(double) - Usada para calcular a raiz quadrada de um número
+
+            Vantagens: Modularização, delegação e reaproveitamento.
+
+            Dados de entrada e saída:
+            Funções podem receber dados de entrada (parâmetros ou argumentos)
+            Funções podem ou não retornar uma saída.
+
+            Em orientação à objetos, funções em classes recebem o nome de "métodos".
+            */
+
+            Console.WriteLine("Digite três números:");
+            int n1 = int.Parse(Console.ReadLine());
+            int n2 = int.Parse(Console.ReadLine());
+            int n3 = int.Parse(Console.ReadLine());
+
+            double resultado = Maior(n1, n2, n3);
+
+            Console.WriteLine("Maior = " + resultado);            
+        }
+
+        static int Maior(int a, int b, int c) // Exercício atrelado ao conteúdos de "Funções" acima.
+        {                                     // Aqui nós delegamos uma tarefa a uma função separada e apenas chamamos ela no "programa principal".
+            
+            // Fazer um programa para ler três números inteiros e mostrar na tela o maior deles.            
+
+            int m;
+
+            if (a > b && a > c)
+            {
+                m = a;
+            }
+            else if (b > c)
+            {
+                m = b;
+            }
+            else
+            {
+                m = c;
+            }
+
+            return m;
+        }
+
+        static void Debbuging() // No Visual Studio.
+        {
+            /*
+            Com ele conseguimos acompanhar a execução do nosso programa indo passo a passo.
+            Isso ajuda em situações em que nosso programa tenha um erro, ou esteja difícil de compreender. 
+            
+            Teclas:
+            F9 - marcar/desmarcar breakpoint
+            f5 - iniciar/continuar o debug
+            f10 - Executar um passo (pula função)
+            f11 - Executar um passo (entra na função)
+            SHIFT+F11 - Sair do método em execução
+            SHIFT+F5 - Parar debug
+
+            Janelas: 
+            Watch (expressões personalizadas)
+            Autos (expressões "interessantes" detectadas pelo Visual Studio)
+            Locals (variáveis locais)
+            */
+
+            Console.WriteLine("Digite um número"); // Apertar F9 para marcar o breakpoint e F10 para iniciar o debug
+            int a = int.Parse(Console.ReadLine());
+            
+            if (a >= 0)
+            {
+                Console.WriteLine("O número é positivo");            
+            }
+            else
+            {
+                Console.WriteLine("O número é negativo");
+            }
+        }
+
+        static void While() // Estrutura de repetição "enquanto".
+        {
+            // while ( condição ) { comandos } - A execução dos comandos seguirá se repetindo enquanto a condição resultar em verdadeira.
+
+            /*
+            Digitar um número e mostrar sua raiz quadrada com três casas decimais, depois repetir o procedimento.
+            Quando o usuário digitar um número negativo (podendo inclusive ser na primeira vez), mostrar uma mensagem "número negativo" e terminar o programa.
+            */
+
+            Console.Write("Digite um número:");
+            double a = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            while (a >= 0.000)
+            {
+                double raiz = Math.Sqrt(a);
+                Console.WriteLine(raiz.ToString("F3", CultureInfo.InvariantCulture));
+
+                Console.Write("Digite outro número:");
+                a = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            }
+
+            Console.WriteLine("Número negativo!");
         }
 
         // Exercícios de fixação
@@ -883,6 +997,37 @@ namespace S3_LogicaDeProgramacao
             {
                 Console.WriteLine("R$" + imposto.ToString("F2", CultureInfo.InvariantCulture));
             }
+        }
+
+        // PDF de Exercícios propostos 3 - Estrutura de repetição "While"
+        static void ExP15()
+        {
+            /*
+            Escreva um programa que repita a leitura de uma senha até que ela seja válida.
+            Para cada leitura de senha incorreta informada, escrever mensagem "Senha inválida". 
+            Quando a senha for informada corretamente deve ser impressa a mensagem "Acesso permitido" e o algoritmo encerrado.
+            Considere a senha correta como "2002".
+            */
+        }
+
+        static void ExP16()
+        {
+            /*
+            escreva um programa para ler as coordenadas (X,Y) de uma quantidade indeterminada de pontos no sistema cartesiano.
+            Para cada ponto escrever o quadrante a que ele pertence. 
+            O algoritmo será encerrado quando pelo menos uma de duas coordenadas for NULA (nesta situação sem escrever mensagem alguma).
+            */
+        }
+
+        static void ExP17()
+        {
+            /*
+            Um posto de combustíveis deseja determinar qual de seus produtos tem a preferência de seus clientes.
+            Escreva um algoritmo para ler o tipo de combustível abastecido (codificado da senguinte forma: 1.Álcool 2.Gasolina 3.Diesel 4.Fim).
+            Caso o usuário informa um código inválido (fora da faixa de 1 a 4) deve ser solicitado um novo código (até que seja válido).
+            O programa será encerrado quando o código informado for o número 4. 
+            Deve ser escrito a mensagem: "Muito obrigado" e a quantidade de clientes que abasteceram cada tipo de combustível.
+            */
         }
     }
 }
