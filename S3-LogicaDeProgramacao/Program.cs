@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Net;
+using System.ComponentModel;
 
 namespace S3_LogicaDeProgramacao
 {
@@ -53,7 +54,7 @@ namespace S3_LogicaDeProgramacao
             ExP12();
             ExP13();
             ExP14();
-
+            
             // Execução dos exercícios propostos 3 - Estrutura de repetição "While".
 
             ExP15();
@@ -1008,6 +1009,18 @@ namespace S3_LogicaDeProgramacao
             Quando a senha for informada corretamente deve ser impressa a mensagem "Acesso permitido" e o algoritmo encerrado.
             Considere a senha correta como "2002".
             */
+
+            Console.WriteLine("Digite a senha:");
+            int senha = int.Parse(Console.ReadLine());
+
+            while (senha != 2002)
+            {
+                Console.WriteLine("Senha inválida.");
+                Console.WriteLine("Digite a senha novamente:");
+                senha = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Acesso permitido");
         }
 
         static void ExP16()
@@ -1017,6 +1030,36 @@ namespace S3_LogicaDeProgramacao
             Para cada ponto escrever o quadrante a que ele pertence. 
             O algoritmo será encerrado quando pelo menos uma de duas coordenadas for NULA (nesta situação sem escrever mensagem alguma).
             */
+
+            Console.WriteLine("Digite o valor de X e Y:");
+            string[] valores = Console.ReadLine().Split(' ');
+            int x = int.Parse(valores[0]);
+            int y = int.Parse(valores[1]);
+
+            while (x != 0 && y != 0)
+            {
+                if (x > 0 && y > 0)
+                {
+                    Console.WriteLine("Primeiro");
+                }
+                else if (x < 0 && y > 0)
+                {
+                    Console.WriteLine("Segundo");
+                }
+                else if (x < 0 && y < 0)
+                {
+                    Console.WriteLine("Terceiro");
+                }
+                else
+                {
+                    Console.WriteLine("Quarto");
+                }
+
+                Console.WriteLine("Digite o valor de X e Y");
+                valores = Console.ReadLine().Split(' ');
+                x = int.Parse(valores[0]);
+                y = int.Parse(valores[1]);
+            }
         }
 
         static void ExP17()
@@ -1028,6 +1071,45 @@ namespace S3_LogicaDeProgramacao
             O programa será encerrado quando o código informado for o número 4. 
             Deve ser escrito a mensagem: "Muito obrigado" e a quantidade de clientes que abasteceram cada tipo de combustível.
             */
+
+            Console.WriteLine("Digite o código do produto:");
+            int produto = int.Parse(Console.ReadLine());
+
+            int alcool = 0;
+            int gasolina = 0;
+            int diesel = 0;
+
+            while (produto != 4)
+            {
+                if (produto == 1)
+                {
+                    Console.WriteLine("Registrado!");
+                    alcool += 1;
+                }
+                else if (produto == 2)
+                {
+                    Console.WriteLine("Registrado!");
+                    gasolina += 1;
+                }
+                else if (produto == 3)
+                {
+                    Console.WriteLine("Registrado!");
+                    diesel += 1;
+                }
+
+                if (produto < 1 || produto > 4)
+                {
+                    Console.WriteLine("Código inválido.");
+                }
+
+                Console.WriteLine("Digite o próximo código:");
+                produto = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Muito obrigado!");
+            Console.WriteLine("Álcool: " + alcool);
+            Console.WriteLine("Gasolina: " + gasolina);
+            Console.WriteLine("Diesel: " + diesel);
         }
     }
 }
