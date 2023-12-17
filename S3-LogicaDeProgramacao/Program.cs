@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Net;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace S3_LogicaDeProgramacao
 {
@@ -16,50 +17,61 @@ namespace S3_LogicaDeProgramacao
         static void Main(string[] args)
         {
             
-            TiposDeDados(); // Linha .
-            SaidaDeDados(); // Linha .
-            OperadoresDeAtribuicao(); // Linha .
-            ConversaoImplicitaECasting(); // Linha .
-            OperadoresAritmeticos(); // Linha .
-            EntradaDeDados(); // Linha .
-            OperadoresComparativos(); // Linha .
-            OperadoresLogicos(); // Linha .
-            EstruturasCondicionais(); // Linha .
-            Escopo(); // Linha . 
-            Funcoes(); // Linha .
-            Debbuging(); // Linha .
-            While(); // Linha .
+            TiposDeDados(); // Linha 79.
+            SaidaDeDados(); // Linha 122.
+            OperadoresDeAtribuicao(); // Linha 149.
+            ConversaoImplicitaECasting(); // Linha 197.
+            OperadoresAritmeticos(); // Linha 227.
+            EntradaDeDados(); // Linha 277.
+            OperadoresComparativos(); // Linha 327.
+            OperadoresLogicos(); // Linha 358.
+            EstruturasCondicionais(); // Linha 389.
+            Escopo(); // Linha 441. 
+            Funcoes(); // Linha 459.
+            Debbuging(); // Linha 507.
+            While(); // Linha 540.
+            For(); // Linha 564.
 
             // Execução dos exercícios de fixação
 
-            Ex1();
-            Ex2();
+            Ex1(); // Linha 591.
+            Ex2(); // Linha 617.
 
             // Execução dos exercícios propostos 1 - Estrutura sequencial.
 
-            ExP1();
-            ExP2();
-            ExP3();
-            ExP4();
-            ExP5();
-            ExP6();
+            ExP1(); // Linha 648.
+            ExP2(); // Linha 664.
+            ExP3(); // Linha 678.
+            ExP4(); // Linha 703.
+            ExP5(); // Linha 728.
+            ExP6(); // Linha 755.
 
             // Execução dos exercícios propostos 2 - Estrutura condicional.
 
-            ExP7();
-            ExP8();
-            ExP9();
-            ExP10();
-            ExP11();
-            ExP12();
-            ExP13();
-            ExP14();
-            
-            // Execução dos exercícios propostos 3 - Estrutura de repetição "While".
+            ExP7(); // Linha 788.
+            ExP8(); // Linha 805.
+            ExP9(); // Linha 822.
+            ExP10(); // Linha 844.
+            ExP11(); // Linha 870.
+            ExP12(); // Linha 914.
+            ExP13(); // Linha 946.
+            ExP14(); // Linha 992.
 
-            ExP15();
-            ExP16();
-            ExP17();
+            // Execução dos exercícios propostos 3 - Estrutura de repetição "while".
+
+            ExP15(); // Linha 1042.
+            ExP16(); // Linha 1064.
+            ExP17(); // Linha 1103.
+
+            // Execução dos exercícios propostos 4 - Estrutura de repetição "for".
+
+            ExP18(); // Linha 1154.
+            ExP19(); // Linha 1167.
+            ExP20(); // Linha 1199.
+            ExP21(); // Linha 1224.
+            ExP22(); // Linha 1254.
+            ExP23(); // Linha 1274.
+            ExP24(); // Linha 1290.
 
             Console.ReadLine();
         }
@@ -549,6 +561,32 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine("Número negativo!");
         }
 
+        static void For() // Estrutura de repetição "para".
+        {
+            // for  ( início; condição; incremento ) { comandos } - A execução dos comandos seguirá se repetindo enquanto a condição resultar em verdadeira.
+
+            /*
+            Utilizada principalmente quando você sabe quantas vezes os comandos precisarão serem repetidos, ou quando há uma contagem.
+            Caso não se saiba quantas repetições serão necessárias, costuma ser melhor utilizar o "while".
+            */
+
+            // Digitar um número N e depois N valores inteiros. Mostrar a soma dos N valores digitados.
+
+            Console.Write("Quantos números inteiros você vai digitar?");
+            int N = int.Parse(Console.ReadLine());
+
+            int soma = 0;
+
+            for (int i = 1; i <= N; i++)
+            {
+                Console.Write("Valor #{0}: ", i);
+                int valor = int.Parse(Console.ReadLine());
+                soma += valor;
+            }
+
+            Console.WriteLine("Soma = " + soma);
+        }
+
         // Exercícios de fixação
         static void Ex1() // Exercício de saída de dados.
         {
@@ -1000,7 +1038,7 @@ namespace S3_LogicaDeProgramacao
             }
         }
 
-        // PDF de Exercícios propostos 3 - Estrutura de repetição "While"
+        // PDF de Exercícios propostos 3 - Estrutura de repetição "while"
         static void ExP15()
         {
             /*
@@ -1110,6 +1148,163 @@ namespace S3_LogicaDeProgramacao
             Console.WriteLine("Álcool: " + alcool);
             Console.WriteLine("Gasolina: " + gasolina);
             Console.WriteLine("Diesel: " + diesel);
+        }
+
+        // PDF de Exercícios propostos 4 - Estrutura de repetição "for"
+        static void ExP18()
+        {
+            // Leia um valor inteiro X (1 <= X <= 1000). Em seguida mostre os ímpares de 1 até X, um valor por linha, inclusive o X, se for o caso.
+
+            Console.WriteLine("Digite um valor:");
+            int x = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= x; i += 2)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        static void ExP19()
+        {
+            /*
+            Leia um valor inteiro N. Este valor será a quantidade de valores inteiros X que serão lidos em seguida.
+            Mostre quantos destes valores X estão dentro do intervalo [10,20] e quantos estão fora do intervalo, 
+            mostrando essas informações conforme exemplo (use a palavra "in" para dentro do intervalo, e "out" para fora do intervalo).
+            */
+
+            Console.WriteLine("Digite um a quantidade de números a serem lidos:");
+            int N = int.Parse(Console.ReadLine());
+
+            int In = 0;
+            int Out = 0;
+
+            for (int i = 1; i <= N; i++)
+            {
+                Console.WriteLine("Digite o próximo número");
+                int x = int.Parse(Console.ReadLine());
+                if (x >= 10 && x <= 20)
+                {
+                    In += 1;
+                }
+                else
+                {
+                    Out += 1;
+                }
+            }
+
+            Console.WriteLine(In + " in");
+            Console.WriteLine(Out + " out");
+        }
+
+        static void ExP20()
+        {
+            /*
+            Leia 1 valor inteiro N, que representa o número de casos de teste que vem a seguir. 
+            Cada caso de teste consiste de 3 valores reais, cada um deles com uma casa decimal.
+            Apresente a média ponderada para cada um destes conjuntos de 3 valores, sendo que o primeiro valor tem peso 2, o segundo valor tem peso 3 e o terceiro valor tem peso 5.
+            */
+
+            Console.WriteLine("Digite a quantidade de casos de teste:");
+            int N = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine("Digite três valores reais");
+                string[] valores = Console.ReadLine().Split(' ');
+                double n1 = double.Parse(valores[0], CultureInfo.InvariantCulture);
+                double n2 = double.Parse(valores[1], CultureInfo.InvariantCulture);
+                double n3 = double.Parse(valores[2], CultureInfo.InvariantCulture);
+
+                double media = (n1 * 2.0 + n2 * 3.0 + n3 * 5.0) / 10.0;
+
+                Console.WriteLine("Média ponderada = " + media.ToString("F1", CultureInfo.InvariantCulture));
+            }
+        }
+
+        static void ExP21()
+        {
+            /*
+            Fazer um programa para ler um número N.
+            Depois leia N pares de números e mostre a divisão do primeiro pelo segundo.
+            Se o denominador for igual a zero, mostrar a mensagem "divisão impossível".
+            */
+
+            Console.WriteLine("Digite a quantidade de pares: ");
+            int N = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine("Digite dois valores: ");
+                string[] valores = Console.ReadLine().Split(' ');
+                int n1 = int.Parse(valores[0]);
+                int n2 = int.Parse(valores[1]);
+
+                if (n2 == 0)
+                {
+                    Console.WriteLine("Divisão impossível");
+                }
+                else
+                {
+                    double divisao = (double)n1 / n2;
+                    Console.WriteLine(divisao.ToString("F1", CultureInfo.InvariantCulture));
+                }
+            }
+        }
+
+        static void ExP22()
+        {
+            /*
+            Ler um valor N. Calcular e escrever seu respectivo fatorial. 
+            Fatorial de N = N * (N-1) * (N-2) * (N-3) * ... * 1.;
+            Lembrando que, por definição, fatorial de 0 é 1.
+            */
+
+            Console.WriteLine("Digite um valor");
+            int N = int.Parse(Console.ReadLine());
+            int fat = 1;
+
+            for (int i = 1; i <= N; i++)
+            {
+                fat *= i;
+            }
+
+            Console.WriteLine("fatorial = " + fat);
+        }
+
+        static void ExP23()
+        {
+            // Ler um número inteiro N e calcular todos os seus divisores.
+
+            Console.WriteLine("Digite um número inteiro:");
+            int N = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= N; i++ )
+            {
+                if (N % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        static void ExP24()
+        {
+            /*
+            Fazer um programa para ler um número inteiro positivo N. O programa deve então mostrar na tela N linhas, começando de 1 até N. 
+            Para cada linha, mostrar o número da linha, depois o quadrado e o cubo do valor.
+            */
+
+            Console.WriteLine("Digite um valor:");
+            int N = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= N; i++)
+            {
+                int primeiro = i;
+                int segundo = i * i;
+                int terceiro = i * i * i;
+                Console.WriteLine($"{primeiro} {segundo} {terceiro}");
+            }
+                
         }
     }
 }
