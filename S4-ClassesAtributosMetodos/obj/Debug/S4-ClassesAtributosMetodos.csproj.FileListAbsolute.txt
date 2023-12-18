@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\bin\Debug\S4-ClassesAtributosMetodos.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\bin\Debug\S4-ClassesAtributosMetodos.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\bin\Debug\S4-ClassesAtributosMetodos.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\obj\Debug\S4-ClassesAtributosMetodos.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\obj\Debug\S4-ClassesAtributosMetodos.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\obj\Debug\S4-ClassesAtributosMetodos.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S4-ClassesAtributosMetodos\obj\Debug\S4-ClassesAtributosMetodos.pdb

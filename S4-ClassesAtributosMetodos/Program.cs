@@ -14,6 +14,11 @@ namespace S4_ClassesAtributosMetodos
             ProblemaExemplo(); // Linha 21.
             Classe(); // Linha 60.
 
+            // Primeiros exercícios de fixação
+            
+            Ex1(); // Linha .
+            Ex2(); // Linha .
+
             Console.ReadLine();
         }
 
@@ -109,6 +114,61 @@ namespace S4_ClassesAtributosMetodos
             {
                 Console.WriteLine("Maior área: Y");
             }
+        }
+
+        // PDF de primeiros exercícios de fixação.
+        static void Ex1()
+        {
+            // Fazer um programa para ler os dados de duas pessoas, depois mostrar o nome da pessoa mais velha.
+
+            Pessoa p1, p2;
+            p1 = new Pessoa();
+            p2 = new Pessoa();
+
+            Console.WriteLine("Informe os dados da primeira pessoa:");
+            Console.Write("Nome: ");
+            p1.nome = Console.ReadLine();
+            Console.Write("Idade: ");
+            p1.idade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Informe os dados da segunda pessoa:");
+            Console.Write("Nome: ");
+            p2.nome = Console.ReadLine();
+            Console.Write("Idade: ");
+            p2.idade = int.Parse(Console.ReadLine());
+
+            if (p1.idade > p2.idade)
+            {
+                Console.WriteLine("Pessoa mais velha: " + p1.nome);
+            }
+            else
+            {
+                Console.WriteLine("Pessoa mais velha: " + p2.nome);
+            }
+        }
+
+        static void Ex2()
+        {
+            // Fazer um programa para ler nome e salário de dois funcionários. Depois, mostrar o salário médio dos funcionários.
+
+            Funcionario f1 = new Funcionario(); 
+            Funcionario f2 = new Funcionario();
+
+            Console.WriteLine("Informe os dados do primeiro funcionário:");
+            Console.Write("Nome: ");
+            f1.nome = Console.ReadLine();
+            Console.Write("Salário: ");
+            f1.salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Informe os dados do segundo funcionário:");
+            Console.Write("Nome: ");
+            f2.nome = Console.ReadLine();
+            Console.Write("Salário: ");
+            f2.salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double media = (f1.salario + f2.salario) / 2.0;
+
+            Console.WriteLine("Salário médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
