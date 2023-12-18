@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
-using S4_AtributosClassesMetodos;
 
 namespace S4_ClassesAtributosMetodos
 {
@@ -13,7 +12,7 @@ namespace S4_ClassesAtributosMetodos
         static void Main(string[] args)
         {
             ProblemaExemplo(); // Linha 21.
-            Classe(); // Linha 59.
+            Classe(); // Linha 60.
 
             Console.ReadLine();
         }
@@ -111,6 +110,5 @@ namespace S4_ClassesAtributosMetodos
                 Console.WriteLine("Maior área: Y");
             }
         }
-
     }
 }

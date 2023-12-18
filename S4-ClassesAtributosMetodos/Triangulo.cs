@@ -1,4 +1,4 @@
-﻿namespace S4_AtributosClassesMetodos
+﻿namespace S4_ClassesAtributosMetodos
 {
     internal class Triangulo
     {
