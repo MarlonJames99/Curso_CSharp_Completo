@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3-LogicaDeProgramacao", "S3-LogicaDeProgramacao\S3-LogicaDeProgramacao.csproj", "{453A3275-C5D6-4D7F-81E1-3C2727245EDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S4-ClassesAtributosMetodos", "S4-AtributosClassesMetodos\S4-ClassesAtributosMetodos.csproj", "{58A514CE-F1A6-42E7-902A-D79E06545602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{453A3275-C5D6-4D7F-81E1-3C2727245EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{453A3275-C5D6-4D7F-81E1-3C2727245EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{453A3275-C5D6-4D7F-81E1-3C2727245EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A514CE-F1A6-42E7-902A-D79E06545602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A514CE-F1A6-42E7-902A-D79E06545602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A514CE-F1A6-42E7-902A-D79E06545602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A514CE-F1A6-42E7-902A-D79E06545602}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
