@@ -25,6 +25,7 @@ namespace S4_ClassesAtributosMetodos
             Ex5(); // Linha .
 
             */
+            Ex4();
             Console.ReadLine();
         }
 
@@ -248,6 +249,18 @@ namespace S4_ClassesAtributosMetodos
             + Diagonal(): double
             */
 
+            Retangulo r = new Retangulo();
+
+            Console.WriteLine("Informe a largura e altura do retângulo: ");
+            Console.Write("Largura: ");
+            r.Largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Altura: ");
+            r.Altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine();
+            Console.WriteLine("Area = " + r.Area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Perímetro = " + r.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Diagonal = " + r.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
         }
 
         static void Ex4()
