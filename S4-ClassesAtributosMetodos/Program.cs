@@ -20,9 +20,11 @@ namespace S4_ClassesAtributosMetodos
             
             Ex1(); // Linha .
             Ex2(); // Linha .
+            Ex3(); // Linha .
+            Ex4(); // Linha .
+            Ex5(); // Linha .
 
             */
-            ProblemaExemplo2();
             Console.ReadLine();
         }
 
@@ -131,12 +133,12 @@ namespace S4_ClassesAtributosMetodos
 
             Para resolver o problema devemos criar uma classe conforme abaixo:
 
-            Produto:
-            -----------------------------------------
+                        Produto
+            ----------------------------------
             - Nome: string
             - Preco: double
             - Quantidade: int
-            -----------------------------------------
+            ----------------------------------
             + ValorTotalEmEstoque(): double
             + AdicionarProdutos(quantity: int): void
             + RemoverProdutos(quantity: int): void
@@ -154,7 +156,24 @@ namespace S4_ClassesAtributosMetodos
             Console.Write("Quantidade no estoque: ");
             p.Quantidade = int.Parse(Console.ReadLine());
 
+            Console.WriteLine();
             Console.WriteLine("Dados do produto: " + p);
+
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+            int qte = int.Parse(Console.ReadLine());
+            p.AdicionarProdutos(qte);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + p);
+
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser removido do estoque: ");
+            qte = int.Parse(Console.ReadLine());
+            p.RemoverProdutos(qte);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + p);
         }
 
         // PDF de primeiros exercícios de fixação.
@@ -210,6 +229,55 @@ namespace S4_ClassesAtributosMetodos
             double media = (f1.salario + f2.salario) / 2.0;
 
             Console.WriteLine("Salário médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        // PDF de exercícios de fixação de classes, atributos e métodos.
+        static void Ex3()
+        {
+            /*
+            Fazer um programa para ler os valores da largura e altura de um retângulo. Em seguida, mostrar na tela o valor de sua área, perímetro e diagonal.
+            Usar uma classe como mostrado no projeto abaixo:
+
+                        Retangulo
+            ----------------------------------
+            - Largura: double
+            - Altura: double
+            ----------------------------------
+            + Area(): double
+            + Perimetro(): double
+            + Diagonal(): double
+            */
+
+        }
+
+        static void Ex4()
+        {
+            /*
+            Fazer um programa para ler os dados de um funcionário (nome, salário bruto e imposto). 
+            Em seguida, mostrar os dados do funcionário (nome e salário líquido).
+            Em seguida, aumentar o salário do funcionário com base em uma porcentagem dada (somente o salário bruto é afetado pela porcentagem)
+            e mostrar novamente os dados do funcionário. Use a classe projetada abaixo:
+
+                        Funcionario
+            ----------------------------------
+            - Nome: string
+            - SalarioBruto: double
+            - Imposto: double
+            ----------------------------------
+            + SalarioLiquido(): double
+            + AumentarSalario(porcentagem: double): void
+            */
+        }
+
+        static void Ex5()
+        {
+            /*
+            Fazer um programa para ler o nome de um aluno e as três notas que ele obteve nos três trimestres do ano 
+            (primeiro trimestre vale 30 e o segundo e terceiro valem 35 cada). Ao final, mostrar qual a nota final do aluno no ano.
+            Dizer também se o aluno está aprovado ou reprovado e, 
+            em caso negativo, quantos pontos faltam para o aluno obter o mínimo para ser aprovado (que é 60 pontos).
+            Você deve criar uma classe Aluno para resolver este problema.
+            */
         }
     }
 }
