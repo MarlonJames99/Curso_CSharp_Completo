@@ -11,14 +11,18 @@ namespace S4_ClassesAtributosMetodos
     {
         static void Main(string[] args)
         {
-            ProblemaExemplo(); // Linha 21.
-            Classe(); // Linha 60.
+            /*
+            ProblemaExemplo(); // Linha .
+            Classe(); // Linha .
+            ProblemaExemplo2(); // Linha .
 
             // Primeiros exercícios de fixação
             
             Ex1(); // Linha .
             Ex2(); // Linha .
 
+            */
+            ProblemaExemplo2();
             Console.ReadLine();
         }
 
@@ -100,11 +104,12 @@ namespace S4_ClassesAtributosMetodos
             y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double p = (x.A + x.B + x.C) / 2.0;
-            double areaX = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
+            double areaX = x.Area();
 
-            p = (y.A + y.B + y.C) / 2.0;
-            double areaY = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
+            double areaY = y.Area();
+
+            Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
+            Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
 
             if (areaX > areaY)
             {
@@ -114,6 +119,42 @@ namespace S4_ClassesAtributosMetodos
             {
                 Console.WriteLine("Maior área: Y");
             }
+        }
+
+        static void ProblemaExemplo2()
+        {
+            /*
+            Fazer um programa para ler os dados de um produto em estoque (nome, preço e quantidade no estoque). Em seguida:
+            - Mostrar os dados do produto (nome, preço, quantidade no estoque, valor total no estoque).
+            - Realizar uma entrada no estoque e mostrar novamente os dados do produto.
+            - Realizar uma saída no estoque e mostrar novamente os dados do produto.
+
+            Para resolver o problema devemos criar uma classe conforme abaixo:
+
+            Produto:
+            -----------------------------------------
+            - Nome: string
+            - Preco: double
+            - Quantidade: int
+            -----------------------------------------
+            + ValorTotalEmEstoque(): double
+            + AdicionarProdutos(quantity: int): void
+            + RemoverProdutos(quantity: int): void
+            */
+
+            Produto p = new Produto();
+
+            Console.WriteLine("Entre os dados do produto:");
+            Console.Write("Nome: ");
+            p.Nome = Console.ReadLine();
+
+            Console.Write("Preço: ");
+            p.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Quantidade no estoque: ");
+            p.Quantidade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Dados do produto: " + p);
         }
 
         // PDF de primeiros exercícios de fixação.
