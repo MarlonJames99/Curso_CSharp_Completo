@@ -217,17 +217,17 @@ namespace S4_ClassesAtributosMetodos
 
             Console.WriteLine("Informe os dados do primeiro funcionário:");
             Console.Write("Nome: ");
-            f1.nome = Console.ReadLine();
+            f1.Nome = Console.ReadLine();
             Console.Write("Salário: ");
-            f1.salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            f1.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Console.WriteLine("Informe os dados do segundo funcionário:");
             Console.Write("Nome: ");
-            f2.nome = Console.ReadLine();
+            f2.Nome = Console.ReadLine();
             Console.Write("Salário: ");
-            f2.salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            f2.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double media = (f1.salario + f2.salario) / 2.0;
+            double media = (f1.Salario + f2.Salario) / 2.0;
 
             Console.WriteLine("Salário médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
         }
@@ -247,6 +247,7 @@ namespace S4_ClassesAtributosMetodos
             + Area(): double
             + Perimetro(): double
             + Diagonal(): double
+
             */
 
             Retangulo r = new Retangulo();
@@ -274,12 +275,37 @@ namespace S4_ClassesAtributosMetodos
                         Funcionario
             ----------------------------------
             - Nome: string
-            - SalarioBruto: double
+            - Salario: double
             - Imposto: double
             ----------------------------------
             + SalarioLiquido(): double
             + AumentarSalario(porcentagem: double): void
+
             */
+
+            Funcionario f = new Funcionario();
+
+            Console.WriteLine("Entre com os dados do funcionário");
+
+            Console.Write("Nome: ");
+            f.Nome = Console.ReadLine();
+
+            Console.Write("Salário bruto: ");
+            f.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Valor do imposto: ");
+            f.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine();
+            Console.WriteLine("Funcionário: " + f);
+
+            Console.WriteLine();
+            Console.Write("Digite a porcentagem para aumentar o salário: ");
+            double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            f.AumentarSalario(porcentagem);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + f);
         }
 
         static void Ex5()
