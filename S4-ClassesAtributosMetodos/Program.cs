@@ -9,12 +9,21 @@ namespace S4_ClassesAtributosMetodos
 {
     internal class Program
     {
+
+        static double Pi = 3.14;
+
         static void Main(string[] args)
         {
-            /*
+            
             ProblemaExemplo(); // Linha .
             Classe(); // Linha .
             ProblemaExemplo2(); // Linha .
+            MembrosEstaticos(); // Linha .
+            Versao1(); // Linha .
+            Circunferencia(3.0); // Linha .
+            Volume(3.0); // Linha .
+            Versao2(); // Linha .
+            Versao3(); // Linha .
 
             // Primeiros exercícios de fixação
             
@@ -24,8 +33,8 @@ namespace S4_ClassesAtributosMetodos
             Ex4(); // Linha .
             Ex5(); // Linha .
 
-            */
-            Ex5();
+            
+            
             Console.ReadLine();
         }
 
@@ -175,6 +184,90 @@ namespace S4_ClassesAtributosMetodos
 
             Console.WriteLine();
             Console.WriteLine("Dados atualizados: " + p);
+        }
+
+        static void MembrosEstaticos()
+        {
+            /*
+            Também são chamados de membros de classe. 
+            Em oposição a membros e instância.
+
+            São membros que fazem sentido independentemente de objetos. Não precisam de objeto para serem chamados.
+            São chamados a partir do próprio nome da classe.
+
+            Aplicações comuns:
+            - Classes utilitárias
+            - Declaração de constantes
+
+            Uma classe que possui somente membros estáticos, pode ser uma classe estática também. 
+            Esta classe não poderá ser instanciada.
+
+            Problema exemplo:
+
+            Fazer um programa para ler um valor numérico qualquer, 
+            e daí mostrar quanto seria o valor de uma circunferência e do volume de uma esfera para um raio daquele valor.
+            Informar também o valor de PI com duas casas decimais.
+
+            Faremos em 3 versões diferentes.
+            */
+        }
+
+        static void Versao1()
+        {
+            // Versão 1: Métodos na própria classe do programa
+            // Nota: Dentro de um método estático você não pode chamar membros de instância da mesma classe.
+
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = Circunferencia(raio);
+            double volume = Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + volume.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de PI: " + Pi.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static double Circunferencia(double r)
+        {
+            return 2.0 * Pi * r;
+        }
+
+        static double Volume(double r)
+        {
+            return 4.0 / 3.0 * Pi * Math.Pow(r, 3.0);
+        }
+
+        static void Versao2()
+        {
+            // Versão 2: Classe Calculadora com membros de instância.
+
+            Calculadora calc = new Calculadora();
+
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = calc.Circunferencia(raio);
+            double volume = calc.Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + volume.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de PI: " + calc.Pi.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static void Versao3()
+        {
+            // Versão 3: Classe Calculadora com método estático.
+
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = CalculadoraEstatica.Circunferencia(raio);
+            double volume = CalculadoraEstatica.Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + volume.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de PI: " + CalculadoraEstatica.Pi.ToString("F2", CultureInfo.InvariantCulture));
         }
 
         // PDF de primeiros exercícios de fixação.
