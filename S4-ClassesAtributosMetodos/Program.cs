@@ -25,7 +25,7 @@ namespace S4_ClassesAtributosMetodos
             Ex5(); // Linha .
 
             */
-            Ex4();
+            Ex5();
             Console.ReadLine();
         }
 
@@ -317,6 +317,36 @@ namespace S4_ClassesAtributosMetodos
             em caso negativo, quantos pontos faltam para o aluno obter o mínimo para ser aprovado (que é 60 pontos).
             Você deve criar uma classe Aluno para resolver este problema.
             */
+
+            Aluno a = new Aluno();
+
+            Console.Write("Nome do aluno: ");
+            a.Nome = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.WriteLine("Digite as três notas do aluno: ");
+            a.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            a.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            a.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine();
+            Console.WriteLine("Nota Final = " + a.NotaFinal().ToString("F2", CultureInfo.InvariantCulture));
+
+            // Minha Solução:
+            // a.Aprovacao(); 
+
+            // Solução do professor:
+            if (a.Aprovacao())
+            {
+                Console.WriteLine("Aprovado!");
+            }
+            else
+            {
+                Console.WriteLine("Reprovado!");
+                Console.WriteLine("Faltaram "
+                    + a.NotaRestante().ToString("F2", CultureInfo.InvariantCulture)
+                    + " Pontos.");
+            }
         }
     }
 }
