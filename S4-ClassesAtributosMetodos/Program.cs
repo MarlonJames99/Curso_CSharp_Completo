@@ -14,26 +14,31 @@ namespace S4_ClassesAtributosMetodos
 
         static void Main(string[] args)
         {
-            
-            ProblemaExemplo(); // Linha .
-            Classe(); // Linha .
-            ProblemaExemplo2(); // Linha .
-            MembrosEstaticos(); // Linha .
-            Versao1(); // Linha .
-            Circunferencia(3.0); // Linha .
-            Volume(3.0); // Linha .
-            Versao2(); // Linha .
-            Versao3(); // Linha .
+
+            ProblemaExemplo(); // Linha 47.
+            Classe(); // Linha 86.
+            ProblemaExemplo2(); // Linha 141.
+            MembrosEstaticos(); // Linha 194.
+            Versao1(); // Linha 220.
+            Circunferencia(3.0); // Linha 236.
+            Volume(3.0); // Linha 241.
+            Versao2(); // Linha 246.
+            Versao3(); // Linha 263.
 
             // Primeiros exercícios de fixação
             
-            Ex1(); // Linha .
-            Ex2(); // Linha .
-            Ex3(); // Linha .
-            Ex4(); // Linha .
-            Ex5(); // Linha .
+            Ex1(); // Linha 279.
+            Ex2(); // Linha 309.
 
-            
+            // Exercícios de classes, atributos e métodos
+
+            Ex3(); // Linha 334.
+            Ex4(); // Linha 365.
+            Ex5(); // Linha 409.
+
+            // Exercício de membros estáticos
+
+            Ex6(); // Linha 451.
             
             Console.ReadLine();
         }
@@ -440,6 +445,27 @@ namespace S4_ClassesAtributosMetodos
                     + a.NotaRestante().ToString("F2", CultureInfo.InvariantCulture)
                     + " Pontos.");
             }
+        }
+
+        // Exercício de fixação - Membros estáticos.
+        static void Ex6()
+        {
+            /*
+            Faça um programa para ler a cotação do dólar, e depois um valor em dólares a ser comprado por uma pessoa em reais.
+            Informar quantos reais a pessoa vai pagar pelos dólares, considerando ainda que a pessoa terá que pagar 6% de IOF sobre o valor em dólar.
+            Criar uma classe ConversorDeMoeda para ser responsável pelos cálculos.
+            */
+
+            Console.Write("Qual é a cotação do dólar? ");
+            ConversorDeMoeda.Cotacao = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Quando dólares você vai comprar? ");
+            ConversorDeMoeda.QuantidadeDolares = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double total = ConversorDeMoeda.ValorConvertido();
+
+            Console.WriteLine();
+            Console.WriteLine("Valor a ser pago em reais = R$" + total.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }

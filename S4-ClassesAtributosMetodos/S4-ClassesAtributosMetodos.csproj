@@ -46,6 +46,7 @@
     <Compile Include="Aluno.cs" />
     <Compile Include="Calculadora.cs" />
     <Compile Include="CalculadoraEstatica.cs" />
+    <Compile Include="ConversorDeMoeda.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Produto.cs" />
