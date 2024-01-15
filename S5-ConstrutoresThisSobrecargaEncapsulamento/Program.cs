@@ -16,6 +16,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             Sobrecarga(); // Linha .
             This(); // Linha . 
             Encapsulamento(); // Linha .
+            Properties(); // Linha .
         }
 
         static void Construtores()
@@ -166,10 +167,33 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             Produto p = new Produto("TV", 500.00, 10);
 
             p.SetNome("TV 4K");
+            p.SetPreco(450.00);
+            p.AdicionarProdutos(5);
+            p.RemoverProdutos(3);
 
             Console.WriteLine(p.GetNome());
             Console.WriteLine(p.GetPreco());
             Console.WriteLine(p.GetQuantidade());
+        }
+
+        static void Properties()
+        {
+            /*
+            São definições de métodos encapsulados, porém expondo uma sintaxe similar à de atributos e não de métodos.
+
+            - Uma propriedade é um membro que oferece um mecanismo flexível para ler, gravar ou calcular o valor de um campo particular.
+            As propriedades podem ser usadas como se fossem atributos públicos, mas na verdade elas são métodos especiais chamados "acessadores". 
+            Isso permite que os dados sejam acessados facilmente e ainda ajuda a promover a segurança e a flexibilidade dos métodos.
+            */
+
+            Produto p = new Produto("TV", 500.00, 10);
+
+            p.Nome = "TV 4K";
+            p.Preco = 450.00;
+
+            Console.WriteLine(p.Nome);
+            Console.WriteLine(p.Preco);
+            Console.WriteLine(p.Quantidade);
         }
     }
 }

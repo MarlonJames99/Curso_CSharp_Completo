@@ -49,7 +49,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
         public void SetNome(string nome)
         {
-            if (nome != null && nome.Length > 1) // Podemos criar regras para controlar a manipulação dos dados.
+            if (nome != null && nome.Length > 1)  // Podemos criar regras para controlar a manipulação dos dados pelo programa principal.
             {
                 _nome = nome;
             }
@@ -57,7 +57,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
         public void SetPreco(double preco)
         {
-            if (preco > 0 )
+            if (preco > 0 ) 
             {
                 _preco = preco;
             }
@@ -65,6 +65,37 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
         // O atributo quantidade só poderá ser modificado pelos métodos AdicionarProdutos e RemoverProdutos, por isso não definiremos um Set para ele.
 
+        // Properties:
+        public string Nome
+        {
+            get { return _nome; }
+            set 
+            {
+                if (value != null && value.Length > 1) // Dentro das properties, utilizamos a palavra "value" para nos referirmos ao parâmetro recebido pelo Set.
+                {
+                    _nome = value;
+                }
+            }
+        }
+
+        public double Preco
+        {
+            get { return _preco; }
+            set 
+            {
+                if (value > 0)
+                {
+                    _preco = value;
+                }
+            }
+        }
+
+        public int Quantidade
+        {
+            get { return _quantidade; }
+        }
+
+        // Métodos:
         public double ValorTotalEmEstoque()
         {
             return _preco * _quantidade;
@@ -80,6 +111,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             _quantidade -= quantidade;
         }
 
+        // ToString customizado:
         public override string ToString()
         {
             return _nome
