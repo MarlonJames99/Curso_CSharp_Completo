@@ -13,11 +13,22 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
         public double Preco;
         public int Quantidade;
 
+        public Produto() // Sobrecarga com o construtor padrão para que se possa utilizar também o construtor padrão da linguagem.
+        {
+        }
+
         public Produto(string nome, double preco, int quantidade) // O construtor é uma função que deve conter o mesmo nome da classe.
         {
             Nome = nome;
             Preco = preco;
             Quantidade = quantidade;
+        }
+
+        public Produto(string nome, double preco)
+        {
+            Nome = nome;
+            Preco = preco;
+            Quantidade = 0; // Esta linha é dispensável, pois por padrão os parâmetros numéricos são iniciados com o valor 0.
         }
 
         public double ValorTotalEmEstoque()
