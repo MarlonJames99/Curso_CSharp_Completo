@@ -9,6 +9,16 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 {
     internal class Produto
     {
+        /*
+        Ordem sugerida de implementação de membros de classe:
+
+        1. Atributos privados
+        2. Propriedades autoimplementadas
+        3. Construtores
+        4. Propriedades customizadas
+        5. Outros métodos da classe
+        */
+
         private string _nome; // Definido como privado, por isso não poderá ter seu valor modificado em outro arquivo.
         private double _preco; // Por convenção no C#, escrevemos o novo dos atributos com _ e primeira letra minúscula.
         public int Quantidade { get; private set; } // Declarado com autoproperties.

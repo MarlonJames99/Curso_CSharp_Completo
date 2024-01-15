@@ -211,5 +211,42 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             p.RemoverProdutos(3);
             Console.WriteLine(p.Quantidade);
         }
+
+        static void ModificadoresDeAcesso()
+        {
+            /*
+            Apenas para ter como referência, já que por enquanto apenas trabalharemos com "public" e "private".
+
+                                                       Modificadores para membros de uma classe:
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            |                     | própria classe | subclasses no assembly | classes do assembly | subclasses fora do assembly | classes fora do assembly |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | public              |        X       |            X           |          X          |              X              |            X             |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | protected internal  |        X       |            X           |          X          |              X              |                          |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | internal            |        X       |            X           |          X          |                             |                          |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | protected           |        X       |            X           |                     |              X              |                          |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | private protected   |        X       |            X           |                     |                             |                          |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+            | private             |        X       |                        |                     |                             |                          |
+            ------------------------------------------------------------------------------------------------------------------------------------------------
+
+            Modificadores para Classes:
+
+            - Acesso por qualquer classe 
+              - public class Product
+
+            - Acesso somente dentro do assembly
+              - internal class product
+              - class Product
+
+            - Acesso somente pela classe-mãe
+              - private class product
+              - nota: classe aninhada, por padrão, é private.
+            */
+        }
     }
 }
