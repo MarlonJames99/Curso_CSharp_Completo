@@ -14,6 +14,8 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
             Construtores(); // Linha .
             Sobrecarga(); // Linha .
+            This(); // Linha . 
+            Encapsulamento(); // Linha .
         }
 
         static void Construtores()
@@ -100,6 +102,17 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
             Produto p = new Produto(nome, preco); // Aqui utilizamos o construtor que possui 2 argumentos, mas o que possui 3 segue funcional.
 
+            Produto P2 = new Produto(); // O Construtor padrão segue funcional.
+
+            Produto P3 = new Produto() // Sintaxe alternativa do C# que nos permite declarar os valores diretamente na instanciação.
+            {   // É funcional mesmo que não tenhamos criado nenhum construtor personalizado na classe. Porém é necessário ter o construtor padrão utilizável na classe em questão.
+                /*
+                Nome = "TV",
+                Preco = 500.00,
+                Quantidade = 20
+                */
+            };  // Deixei comentado pois definimos os atributos nome, preco e quantidade como "private" na classe "Produto", por isso não funcionaria.
+
             Console.WriteLine();
             Console.WriteLine("Dados do produto: " + p);
 
@@ -119,6 +132,44 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             Console.WriteLine();
             Console.WriteLine("Dados atualizados: " + p);
 
+        }
+
+        static void This()
+        {
+            /*
+            A palavra This é uma referência para o próprio objeto.
+
+            Usos comuns:
+            - Diferenciar atributos de variáveis locais -> Não é comum no C# pois por padrão iniciamos atributos com letra Maiúsculas e variáveis locais com minúsculas.
+            - Referenciar outro construtor em um construtor -> Exemplificado na classe "Produto.cs"
+            - Passar o próprio objeto como argumento na chamada de um método ou construtor -> Veremos seu uso na prática mais adiante no curso.
+            */
+        }
+
+        static void Encapsulamento()
+        {
+            /*
+            É um princípio que consiste em esconder detalhes de implementação de um componente, 
+            expondo apenas operações seguras e que o mantenha em um estado consistente.
+
+            Regra de ouro: o objeto deve sempre estar em um estado consistente, e a própria classe deve garantir isso.
+
+            Opção 1: Implementação manual
+
+            Todo atributo é definido como private.
+
+            Implementa-se métodos Get e Set para cada atributo, conforme regras de negócio.
+
+            Nota: não é usual na plataforma C#.
+            */
+
+            Produto p = new Produto("TV", 500.00, 10);
+
+            p.SetNome("TV 4K");
+
+            Console.WriteLine(p.GetNome());
+            Console.WriteLine(p.GetPreco());
+            Console.WriteLine(p.GetQuantidade());
         }
     }
 }
