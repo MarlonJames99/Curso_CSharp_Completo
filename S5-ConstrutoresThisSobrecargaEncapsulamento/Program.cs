@@ -17,6 +17,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
             This(); // Linha . 
             Encapsulamento(); // Linha .
             Properties(); // Linha .
+            AutoProperties(); //Linha .
         }
 
         static void Construtores()
@@ -168,12 +169,9 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
             p.SetNome("TV 4K");
             p.SetPreco(450.00);
-            p.AdicionarProdutos(5);
-            p.RemoverProdutos(3);
 
             Console.WriteLine(p.GetNome());
             Console.WriteLine(p.GetPreco());
-            Console.WriteLine(p.GetQuantidade());
         }
 
         static void Properties()
@@ -193,6 +191,24 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
 
             Console.WriteLine(p.Nome);
             Console.WriteLine(p.Preco);
+        }
+
+        static void AutoProperties()
+        {
+            /*
+            Propriedades autoimplementadas:
+
+            É uma forma simplificada de se declarar propriedades que não necessitam lógicas particulares para as operações de get e set.
+
+            EX: public double Preco { get; private set; }
+            */
+
+            Produto p = new Produto("TV", 500.00, 10);
+
+            p.AdicionarProdutos(5);
+            Console.WriteLine(p.Quantidade);
+
+            p.RemoverProdutos(3);
             Console.WriteLine(p.Quantidade);
         }
     }
