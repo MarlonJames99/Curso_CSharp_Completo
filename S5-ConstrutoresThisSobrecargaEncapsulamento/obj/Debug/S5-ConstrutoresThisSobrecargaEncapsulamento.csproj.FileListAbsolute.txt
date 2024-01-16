@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\bin\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\bin\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\bin\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\obj\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\obj\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\obj\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S5-ConstrutoresThisSobrecargaEncapsulamento\obj\Debug\S5-ConstrutoresThisSobrecargaEncapsulamento.pdb

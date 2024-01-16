@@ -11,13 +11,20 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
     {
         static void Main(string[] args)
         {
+            
+            Construtores(); // Linha 30.
+            Sobrecarga(); // Linha 91.
+            This(); // Linha 146. 
+            Encapsulamento(); // Linha 158.
+            Properties(); // Linha 184.
+            AutoProperties(); // Linha 203.
+            ModificadoresDeAcesso(); // Linha 222.
 
-            Construtores(); // Linha .
-            Sobrecarga(); // Linha .
-            This(); // Linha . 
-            Encapsulamento(); // Linha .
-            Properties(); // Linha .
-            AutoProperties(); //Linha .
+            // Exercício de fixação
+            
+            Ex1(); // Linha 261.
+
+            Console.ReadLine();
         }
 
         static void Construtores()
@@ -247,6 +254,81 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
               - private class product
               - nota: classe aninhada, por padrão, é private.
             */
+        }
+
+        // Exercício de fixação:
+
+        static void Ex1()
+        {
+            /*
+            Em um banco, para se cadastrar uma conta bancária, é necessário informar o número da conta, o nome do titular da conta,
+            e o valor que o titular depositou ao abrir a conta.
+            Este valor de depósito inicial, entretanto, é opcional, ou seja: se o titular não tiver dinheiro a depositar no momento de abrir sua conta,
+            o depósito inicial não será feito e o saldo inicial da conta será, natualmente, zero.
+
+            Importante: uma vez que uma conta bancária foi aberta, o número da conta nunca poderá ser alterado. 
+            Já o nome do titular pode ser alterado (pois uma pessoa pode mudar de nome por ocasião de casamento, por exemplo).
+
+            Por fim, o saldo da conta não pode ser alterado livremente. É preciso haver um mecânismo para proteger isso.
+            O saldo só aumenta por meio de depósitos, e só diminui por meio de saques. Para cada saque realizado, o banco cobra uma taxa de $5.00.
+            Nota: a conta pode ficar com saldo negativo se o saldo não for suficiente para realizar o saque e/ou pagar a taxa.
+
+            Você deve fazer um programa que realize o cadastro de uma conta, dando opção para que seja ou não informado o valor de depósito inicial.
+            Em seguida, realizar um depósito e depois um saque, sempre mostrando os dados da conta após cada operação.
+
+                                Conta
+            ----------------------------------------------
+            - Numero : Integer
+            - Titular : String
+            - Saldo : Double
+            ----------------------------------------------
+            + Deposito(valor : double) : void
+            + Saque(valor : double) : void
+            ----------------------------------------------
+            */
+
+            Conta c;
+
+            Console.Write("Entre com o número da conta: ");
+            int numero = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Entre com o titular da conta: ");
+            string nome = Console.ReadLine();
+
+            Console.Write("Haverá depósito inicial (s/n)? ");
+            string resposta = Console.ReadLine();
+
+            if (resposta == "s" || resposta == "S")
+            {
+                Console.Write("Entre com o valor de depósito inicial: ");
+                double valorInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                c = new Conta(nome, numero, valorInicial);
+            }
+            else
+            {
+                c = new Conta(nome, numero);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Dados da conta:");
+            Console.WriteLine(c);
+
+            Console.WriteLine();
+            Console.Write("Entre com um valor para depósito: ");
+            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            c.Deposito(valor);
+
+            Console.WriteLine("Dados da conta atualizados:");
+            Console.WriteLine(c);
+
+            Console.WriteLine();
+            Console.Write("Entre com um valor para saque: ");
+            valor = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+            c.Saque(valor);
+
+            Console.WriteLine("Dados da conta atualizados:");
+            Console.WriteLine(c);
         }
     }
 }
