@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Xml;
+using System.Collections.Specialized;
 
 namespace S6_ComportamentoDeMemoriaArraysListas
 {
@@ -13,10 +14,15 @@ namespace S6_ComportamentoDeMemoriaArraysListas
     {
         static void Main(string[] args)
         {
-
+            
             TipoReferenciaEValor(); // Linha .
             DesalocacaoDeMemoria(); // Linha .
             Nullable(); // Linha .
+            Vetores(); // Linha .
+            
+            // Exercícios de fixação
+
+            Ex1(); // Linha .
 
             Console.ReadLine();
         }
@@ -211,6 +217,129 @@ namespace S6_ComportamentoDeMemoriaArraysListas
             double b = a ?? 10.0; // O que isso faz é, caso o valor de "a" não for nulo, joga seu valor para "b", caso ele seja nulo, então joga o outro valor, neste caso "10.0".
 
             Console.WriteLine(b);
+        }
+
+        static void Vetores() // Arrays
+        {
+            /*
+            Em programação, "vetor" é o nome dado a arranjos unidimensionais.
+
+            Arranjo (array) é uma estrutura de dados:
+            - Homogênea (dados do mesmo tipo)
+            - Ordenada (elementos acessados por meio de posições)
+            - Alocada de uma vez só, em um bloco contíguo de memória
+
+            Vantagens:
+            - Acesso imediato aos elementos pela sua posição
+
+            Desvantagens:
+            - Tamanho fixo
+            - Dificuldade para se realizar inserções e delegações
+            */
+
+            /*
+            Problema exemplo 1
+
+            Fazer um programa para ler um número inteiro N e a altura de N pessoas.
+            Armazene as N alturas em um vetor. Em seguida, mostrar a altura média dessas pessoas.
+            */
+            
+            Console.WriteLine("Vamos calcular a altura média de quantas pessoas?");
+            int n = int.Parse(Console.ReadLine());
+
+            double[] alturas = new double[n]; // Vetor de struct
+
+            for (int i = 0; i < n; i++) // usamos o "i" como o "index" do vetor fazendo com que ele adicione os valores selecionados na posição correta dentro do vetor.
+            {
+                Console.Write("Digite a altura da próxima pessoa: ");
+                alturas[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            }
+
+            double soma = 0.0;
+
+            for (int i = 0; i < n; i++)
+            {
+                soma += alturas[i];
+            }
+
+            double avg = soma / n;
+
+            Console.WriteLine("Altura média = " + avg.ToString("F2", CultureInfo.InvariantCulture));
+            
+            /*
+            Problema exemplo 2
+
+            Fazer um programa para ler um número inteiro N e os dados (nome e preço) de N produtos. Armazene os N produtos em um vetor.
+            Em seguida, mostrar o preço médio dos produtos.
+            */
+
+            Console.WriteLine("Quantos produtos iremos registrar?");
+            int N = int.Parse(Console.ReadLine());
+
+            Produto[] vect = new Produto[N]; // Vetor de classe 
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.Write("Digite o nome do produto: ");
+                string nome = Console.ReadLine();
+                Console.Write("Digite o preço do produto: ");
+                double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vect[i] = new Produto { Nome = nome, Preco = preco }; // Recebemos os valores digitados pelo usuário e depois instanciamos um produto com estes valores.
+            }                                                         // Armazenando-o dentro do vetor na posição "i".
+
+            double sum = 0.0;
+
+            for ( int i = 0; i < N; ++i )
+            {
+                sum += vect[i].Preco;
+            }
+
+            double media = sum / N;
+            Console.WriteLine("Preço médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        // Exercícios de fixação
+
+        static void Ex1()
+        {
+            /*
+            A dona de um pensionato possui dez quartos para alugar para estudantes, sendo esses quartos identificados pelos números 0 a 9.
+
+            Fazer um programa que inicie com todos os dez quartos vazios, 
+            e depois leia uma quantidade N representando o número de estudantes que vão alugar quartos (N pode ser de 1 a 10).
+            Em seguida, registre o aluguel dos N estudantes. Para cada registro de aluguel, informar o nome e email do estudante, 
+            bem como qual dos quartos ele escolheu (de 0 a 9). Suponha que seja escolhido um quarto vago. 
+            Ao final, seu programa deve imprimir um relatório de todas as ocupações do pensionato, por ordem de quarto.
+            */
+
+            Quarto[] quartos = new Quarto[10];
+
+            Console.Write("Quantos quartos serão alugados? ");
+            int N = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= N; ++i)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Aluguel #{i}:");
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
+                Console.Write("Quarto: ");
+                int quarto = int.Parse(Console.ReadLine());
+                quartos[quarto] = new Quarto { Email = email, Nome = nome };
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Quartos ocupados:");
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (quartos[i] != null)
+                {
+                    Console.WriteLine(i + ": " + quartos[i]);
+                }
+            }
         }
     }
 }

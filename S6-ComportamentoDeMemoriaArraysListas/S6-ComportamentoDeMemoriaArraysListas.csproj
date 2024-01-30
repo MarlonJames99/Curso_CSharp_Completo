@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Point.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quarto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
