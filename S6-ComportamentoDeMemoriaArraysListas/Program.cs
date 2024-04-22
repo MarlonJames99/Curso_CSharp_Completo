@@ -14,15 +14,21 @@ namespace S6_ComportamentoDeMemoriaArraysListas
     {
         static void Main(string[] args)
         {
-            
+
             TipoReferenciaEValor(); // Linha .
             DesalocacaoDeMemoria(); // Linha .
             Nullable(); // Linha .
             Vetores(); // Linha .
-            
+            ModificadorDeParametrosParams(); // Linha .
+            ModificadorDeParametrosRefOut(); // Linha .
+            BoxingUnboxing(); // Linha .
+            LaçoForEach(); // Linha .
+            Listas(); // Linha .
+
             // Exercícios de fixação
 
             Ex1(); // Linha .
+            Ex2(); // Linha .
 
             Console.ReadLine();
         }
@@ -298,6 +304,163 @@ namespace S6_ComportamentoDeMemoriaArraysListas
             Console.WriteLine("Preço médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
         }
 
+        static void ModificadorDeParametrosParams()
+        {
+            // Params é utilizado para que possamos definir o vetor para que possa receber um número variável de elementos, adaptando-se a qualquer caso.
+
+            int S1 = Calculadora.Sum(2, 3);
+            int S2 = Calculadora.Sum(2, 4, 3);
+        }
+
+        static void ModificadorDeParametrosRefOut()
+        {
+            /*
+            O Parâmetro "ref" é utilizado para indicar que o valor de uma variável dentro de uma função/método será apenas uma referência a variável no programa principal.
+            Dessa forma, ao executarmos alguma ação com a variável na classe por exemplo,
+            em lugar de armazenar esse valor na memória dentro do escopo do método, ele irá modificar o valor na variável do programa principal,
+            já que o primeiro é somente uma referência que aponta pro segundo.
+            */
+
+            int a = 10;
+            Calculadora.Triple(ref a); // Ao utilizar o "ref" aqui, e também no parâmetro do método na classe "Calculadora", ele entende que um deve fazer referência ao outro.
+            Console.WriteLine(a);
+
+            // O modificador de parâmetro "out" é parecido ao "ref" a diferença é que ele não exige que a variável seja iniciada.
+
+            int b = 10;
+            int triple;
+            Calculadora.Triple2(b, out triple);
+            Console.WriteLine(triple);
+
+            // Ambos são muito similares, mas o "ref" é uma maneira de obrigar o usuário a iniciar a variável.
+            // Ambos são considerados "code smells" (design ruins) e devem ser evitados.
+        }
+
+        static void BoxingUnboxing()
+        {
+            // Boxing é o processo de conversão de um objeto tipo valor para um objeto tipo referência compatível.
+            
+            int x = 20;
+
+            object obj = x;
+            Console.WriteLine(obj);
+
+            // Unboxing é o processo de conversão de um objeto tipo referência para um objeto tipo valor compatível.
+
+            int y = (int) obj;
+            Console.WriteLine(y);
+        }
+
+        static void LaçoForEach()
+        {
+            // Sintaxe opcional e simplificada para percorrer coleções.
+            // Leitura: "Para cada objeto 'obj' contido em vect, faça:"
+
+            string[] vect = new string[] { "Maria", "Bob", "Alex" };
+
+            foreach (string obj in vect)
+            {
+                Console.WriteLine(obj);
+            }
+        }
+
+        static void Listas()
+        {
+            /*
+            Lista é uma estrutura de dados:
+            - Homogênea (dados do mesmo tipo)
+            - Ordenada (elementos acessador por meio de posições)
+            - Inicia vazia, e seus elementos são alocados sob demanda
+            - Cada elemento ocupa um "nó" (ou nodo) da lista
+
+            Classe: List
+            Namespace: System.Collections.Generic
+
+            Vantagens:
+            - Tamanho variável
+            - Facilidade para se realizar inserções e deleções
+
+            Desvantagens:
+            - Acesso sequencial aos elementos
+            */
+
+            List<string> list = new List<string>();
+
+            List<string> list2 = new List<string> { "Maria", "Alex", "Bob" };
+
+            /*
+            Demo:
+
+            Inserir elemento na lista: Add, Insert
+            Tamando da lista: Count
+            Enontrar primeiro ou último elemento da lista que satisfaça um predicado: list.Find, list.FindLast
+            Encontrar primeira ou última posição de elemento da lista que satisfaça um predicado: list.FindIndex, list.FindLastIndex
+            Filtrar a lista com base em um predicado: list.FindAll
+            remover elementos da lista: Remove, RemoveAll, RemoveAt, RemoveRange
+            */
+
+            list.Add("Ronaldo"); // O "Add" por padrão insere o valor no final da lista.
+            list.Add("Romário");
+            list.Add("Rivaldo");
+            list.Add("Rivelino");
+
+            list.Insert(2, "Roberto"); // O "Insert" permite que você escolha em qual posição da lista você quer inserir o elemento.
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine("list.Count: " + list.Count);
+
+            string S1 = list.Find(x => x[0] == 'R');
+            Console.WriteLine("First R: " + S1);
+
+            string S2 = list.FindLast(x => x[0] == 'R');
+            Console.WriteLine("Last R: " + S2);
+
+            int Pos1 = list.FindIndex(x => x[0] == 'R');
+            Console.WriteLine("First Position 'R': " + Pos1);
+
+            int Pos2 = list.FindLastIndex(x => x[0] == 'R');
+            Console.WriteLine("Last Position 'R': " + Pos2);
+
+            List<string> list3 = list.FindAll(x => x.Length == 8); // Filtra somente os elementos que possuam 8 caracteres e retorna seu valor para a nova lista "list3".
+            Console.WriteLine("--------------------------");
+            foreach (string obj in list3)
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine("--------------------------");
+            list.Remove("Romário");
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine("--------------------------");
+            list.RemoveAll(x => x.Length == 8);
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine("--------------------------");
+            list.RemoveAt(1);
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine("--------------------------");
+            list.RemoveRange(0, 1); // Ele pede um index onde iniciará a remoção, e uma contagem de quantos elementos devem ser removidas apartir dali.
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+        }
+
         // Exercícios de fixação
 
         static void Ex1()
@@ -340,6 +503,28 @@ namespace S6_ComportamentoDeMemoriaArraysListas
                     Console.WriteLine(i + ": " + quartos[i]);
                 }
             }
+        }
+
+        static void Ex2()
+        {
+            /*
+            Fazer um programa para ler um número inteiro N e depois os dados (id, nome e salario) de N funcionários. Não deve haver repetição de id.
+
+            Em seguida, efetuar o aumento de X por cento no salário de um determinado funcionário. Para isso, o programa de ler um id e o valor X. 
+            Se o id informado não existir, mostrar uma mensagem e abortar a operação. Ao final, mostrar a listagem atualizada dos funcionários, conforme exemplos.
+
+            Lembre-se de aplicar a técnica de encapsulamento para não permitir que o salário possa ser mudado livremente. 
+            Um salário só pode ser aumentado com base em uma operação de aumento por porcentagem dada.
+
+                              Funcionario
+            ----------------------------------------------
+            - id : Integer
+            - nome : String
+            - salario : Double
+            ----------------------------------------------
+            + AumentarSalario(porcentagem : double) : void
+            ----------------------------------------------
+            */
         }
     }
 }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B2CB455-3501-4AE8-9F18-72240278838B}</ProjectGuid>
+    <ProjectGuid>{BE155D00-5486-4401-8329-E01D9AC8F97C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>S6_ComportamentoDeMemoriaArraysListas</RootNamespace>
-    <AssemblyName>S6-ComportamentoDeMemoriaArraysListas</AssemblyName>
+    <RootNamespace>teste</RootNamespace>
+    <AssemblyName>teste</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculadora.cs" />
-    <Compile Include="Point.cs" />
-    <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quarto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
