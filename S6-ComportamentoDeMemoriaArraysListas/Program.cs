@@ -14,7 +14,7 @@ namespace S6_ComportamentoDeMemoriaArraysListas
     {
         static void Main(string[] args)
         {
-
+            
             TipoReferenciaEValor(); // Linha .
             DesalocacaoDeMemoria(); // Linha .
             Nullable(); // Linha .
@@ -525,6 +525,47 @@ namespace S6_ComportamentoDeMemoriaArraysListas
             + AumentarSalario(porcentagem : double) : void
             ----------------------------------------------
             */
+
+            Console.Write("Quantos funcionários serão registrados? ");
+            int N = int.Parse(Console.ReadLine());
+
+            List<Funcionario> list = new List<Funcionario>();
+
+            for (int i = 1; i <= N;  ++i)
+            {
+                Console.WriteLine("Funcionário #" + i + ":");
+                Console.Write("Id: ");
+                int id = int.Parse(Console.ReadLine());
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Salário: ");
+                double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                list.Add(new Funcionario(id, nome, salario));
+                Console.WriteLine();
+            }
+
+            Console.Write("Entre com o ID do funcionário que receberá um aumento de salário: ");
+            int searchId = int.Parse(Console.ReadLine());
+
+            Funcionario func = list.Find(x => x.Id == searchId);
+            if (func != null)
+            {
+                Console.Write("Entre com a porcentagem de aumento: ");
+                double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                func.AumentarSalario(porcentagem);
+            }
+            else
+            {
+                Console.WriteLine("Este ID não existe!");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Lista atualizada de funcionários:");
+
+            foreach (Funcionario obj in list)
+            {
+                Console.WriteLine(obj);
+            }
         }
     }
 }

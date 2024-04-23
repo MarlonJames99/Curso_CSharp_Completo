@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculadora.cs" />
+    <Compile Include="Funcionario.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />

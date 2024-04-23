@@ -20,7 +20,7 @@ namespace S5_ConstrutoresThisSobrecargaEncapsulamento
         */
 
         private string _nome; // Definido como privado, por isso não poderá ter seu valor modificado em outro arquivo.
-        private double _preco; // Por convenção no C#, escrevemos o novo dos atributos com _ e primeira letra minúscula.
+        private double _preco; // Por convenção no C#, escrevemos o nome dos atributos com _ e primeira letra minúscula.
         public int Quantidade { get; private set; } // Declarado com autoproperties.
 
         // O construtor é uma função que deve conter o mesmo nome da classe.
