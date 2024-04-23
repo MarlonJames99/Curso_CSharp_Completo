@@ -15,20 +15,22 @@ namespace S6_ComportamentoDeMemoriaArraysListas
         static void Main(string[] args)
         {
             
-            TipoReferenciaEValor(); // Linha .
-            DesalocacaoDeMemoria(); // Linha .
-            Nullable(); // Linha .
-            Vetores(); // Linha .
-            ModificadorDeParametrosParams(); // Linha .
-            ModificadorDeParametrosRefOut(); // Linha .
-            BoxingUnboxing(); // Linha .
-            LaçoForEach(); // Linha .
-            Listas(); // Linha .
+            TipoReferenciaEValor(); // Linha 38.
+            DesalocacaoDeMemoria(); // Linha 94.
+            Nullable(); // Linha 176.
+            Vetores(); // Linha 230.
+            ModificadorDeParametrosParams(); // Linha 309.
+            ModificadorDeParametrosRefOut(); // Linha 317.
+            BoxingUnboxing(); // Linha 341.
+            LaçoForEach(); // Linha 356.
+            Listas(); // Linha 369.
+            Matrizes(); // Linha 466.
 
             // Exercícios de fixação
 
-            Ex1(); // Linha .
-            Ex2(); // Linha .
+            Ex1(); // Linha 556.
+            Ex2(); // Linha 598.
+            Ex3(); // Linha 661.
 
             Console.ReadLine();
         }
@@ -461,9 +463,97 @@ namespace S6_ComportamentoDeMemoriaArraysListas
             }
         }
 
+        static void Matrizes()
+        {
+            /*
+            Em programação, "matriz" é o nome dado a arranjos bidimensionais.
+
+            Arranjo é uma estrutura de dados:
+            - Homogênea (dados do mesmo tipo)
+            - Ordenada (elementos acessador por meio de posições)
+            - Alocada de uma vez só, em um bloco contíguo de memória
+
+            Vantagens:
+            - Acesso imediato aos elemtnos pela sua posição
+
+            Desvantagens: 
+            - Tamanho fixo
+            - Dificuldade para se realizar inserções e deleções
+
+                       C O L U N A S
+
+                 |  0  |  1  |  2  |  3  | 
+         L     ---------------------------
+         I     0 | 3.5 | 7.0 | 8.2 | 2.3 |
+         N     ---------------------------
+         H     1 | 4.1 | 6.2 | 7.5 | 2.9 |
+         A     ---------------------------
+         S     2 | 1.0 | 9.5 | 4.8 | 2.1 |
+               ---------------------------
+
+            */
+
+            double[,] mat = new double[2, 3]; // Ao instanciar a matriz indicamos quantas linhas e colunas queremos que ela tenha (2, 3).
+
+            Console.WriteLine(mat.Length); // Indica quantos elementos essa matriz possui.
+
+            Console.WriteLine(mat.Rank); // Nos indica quantas linhas a matriz possui.
+
+            Console.WriteLine(mat.GetLength(0)); // Nos indica o tamanho da primeira dimensão da matriz (linhas).
+
+            Console.WriteLine(mat.GetLength(1)); // Nos indica o tamanho da segunda dimensão da matriz (colunas).
+
+            /*
+            Problema exemplo:
+
+            Fazer um programa para ler um número inteiro N e uma matriz de ordem N contendo números inteiros. 
+            Em seguida, mostrar a diagonal principal e a quantidade de valores negativos da matriz.
+
+            OBS: Matriz de ordem N é uma matriz que possui N linhas e N colunas, ou seja, é uma matriz quadrada.
+            */
+
+            Console.Write("Quantas linhas e colunas esta matriz terá? ");
+            int N = int.Parse(Console.ReadLine());
+
+            int[,] MatQuad  = new int[N, N];
+
+            for (int i = 0; i < N; i++)
+            {
+                string[] values = Console.ReadLine().Split(' '); // Crio um vetor para armazenar os valores de cada linha, usando o split para separar cada elemento.
+
+                for (int j = 0; j < N; j++)
+                {
+                    MatQuad[i,j] = int.Parse(values[j]);
+                }
+            }
+
+            Console.WriteLine("Diagonal principal: ");
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine(MatQuad[i, i] + " ");
+            }
+
+            Console.WriteLine();
+
+            int count = 0;
+            for (int i = 0; i < N; i++) // For para percorrer cada linha.
+            {
+                for (int j = 0; j < N; j++) // For para percorrer cada coluna em cada linha.
+                {
+                    if (MatQuad[i,j] < 0)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            Console.WriteLine("Números negativos: " + count);
+        }
+
         // Exercícios de fixação
 
-        static void Ex1()
+        static void Ex1() // Vetores
         {
             /*
             A dona de um pensionato possui dez quartos para alugar para estudantes, sendo esses quartos identificados pelos números 0 a 9.
@@ -505,7 +595,7 @@ namespace S6_ComportamentoDeMemoriaArraysListas
             }
         }
 
-        static void Ex2()
+        static void Ex2() // Listas
         {
             /*
             Fazer um programa para ler um número inteiro N e depois os dados (id, nome e salario) de N funcionários. Não deve haver repetição de id.
@@ -567,5 +657,68 @@ namespace S6_ComportamentoDeMemoriaArraysListas
                 Console.WriteLine(obj);
             }
         }
+
+        static void Ex3() // Matrizes
+        {
+            /*
+            Fazer um programa para ler dois números inteiros M e N, e depois ler uma matriz de M linhas por N colunas contendo números inteiros, podendo haver repetições.
+            Em seguida, ler um número inteiro X que pertence à matriz. 
+            Para cada ocorrência de X, mostrar os valores à esquerda, acima, à direita e abaixo de X, quando houver, conforme exemplo.
+            */
+
+            Console.Write("Digite a quantidade de linhas da matriz: ");
+            int N = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite a quantidade de colunas da matriz: ");
+            int M = int.Parse(Console.ReadLine()); 
+            
+            int[,] mat = new int[N, M];
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.Write("Digite os valores da próxima linha: ");
+                string[] values = Console.ReadLine().Split(' ');
+
+                for (int j = 0; j < M; j++)
+                {
+                    mat[i, j] = int.Parse(values[j]);
+                }
+            }
+
+            Console.Write("Digite um número inteiro: ");
+            int X = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    if (mat[i, j] == X)
+                    {
+                        Console.WriteLine("Posição: " + i + "," + j + ":");
+
+                        if (j > 0)
+                        {
+                            Console.WriteLine("Esquerda: " + mat[i, j - 1]);
+                        }
+
+                        if (i > 0)
+                        {
+                            Console.WriteLine("Acima: " + mat[i - 1, j]);
+                        }
+
+                        if (j < N - 1)
+                        {
+                            Console.WriteLine("Direita: " + mat[i, j + 1]);
+                        }
+
+                        if (i < M - 1)
+                        {
+                            Console.WriteLine("Abaixo: " + mat[i + 1, j]);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
