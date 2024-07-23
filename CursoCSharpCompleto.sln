@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S6-ComportamentoDeMemoriaAr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S7-TopicosEspeciaisEmCSharpPT1", "S7-TopicosEspeciaisEmCSharpPT1\S7-TopicosEspeciaisEmCSharpPT1.csproj", "{36BF73C5-8641-4518-9636-442DA50421A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S9-EnumeracoesEComposicao", "S9-EnumeracoesEComposicao\S9-EnumeracoesEComposicao.csproj", "{09AED746-1F56-4DE3-84BC-076DA3F32638}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{36BF73C5-8641-4518-9636-442DA50421A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36BF73C5-8641-4518-9636-442DA50421A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36BF73C5-8641-4518-9636-442DA50421A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09AED746-1F56-4DE3-84BC-076DA3F32638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09AED746-1F56-4DE3-84BC-076DA3F32638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09AED746-1F56-4DE3-84BC-076DA3F32638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09AED746-1F56-4DE3-84BC-076DA3F32638}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

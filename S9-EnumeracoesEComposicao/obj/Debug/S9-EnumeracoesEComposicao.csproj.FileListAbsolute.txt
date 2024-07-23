@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\bin\Debug\S9-EnumeracoesEComposicao.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\bin\Debug\S9-EnumeracoesEComposicao.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\bin\Debug\S9-EnumeracoesEComposicao.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\obj\Debug\S9-EnumeracoesEComposicao.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\obj\Debug\S9-EnumeracoesEComposicao.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\obj\Debug\S9-EnumeracoesEComposicao.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S9-EnumeracoesEComposicao\obj\Debug\S9-EnumeracoesEComposicao.pdb
