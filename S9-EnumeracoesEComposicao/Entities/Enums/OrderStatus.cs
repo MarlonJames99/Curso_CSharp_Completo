@@ -8,9 +8,9 @@ namespace S9_EnumeracoesEComposicao.Entities.Enums
 {
     enum OrderStatus : int
     {
-        PendingPayment = 0,
-        Processing = 1,
-        Shipped = 2,
-        Delivered = 3
+        AguardandoPagamento = 0,
+        Processando = 1,
+        Enviado = 2,
+        Entregue = 3
     }
 }

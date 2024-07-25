@@ -15,13 +15,14 @@ namespace S9_EnumeracoesEComposicao
     {
         static void Main(string[] args)
         {
-            Enumeracoes(); // Linha 29.
-            Composicao(); // Linha 78.
+            // Enumeracoes(); // Linha 29.
+            // Composicao(); // Linha 78.
 
             // Exercícios
 
-            Ex1(); // Linha 112.
-            Ex2(); // Linha 160.
+            // Ex1(); // Linha 112.
+            // Ex2(); // Linha 160.
+            Ex3(); // Linha 195.
 
             Console.ReadLine();
         }
@@ -45,19 +46,19 @@ namespace S9_EnumeracoesEComposicao
             {
                 Id = 1080,
                 Moment = DateTime.Now,
-                Status = OrderStatus.PendingPayment
+                Status = OrderStatus.AguardandoPagamento
             };
 
             Console.WriteLine(order);
 
             // Conversão de enum para string
 
-            string txt = OrderStatus.PendingPayment.ToString();
+            string txt = OrderStatus.AguardandoPagamento.ToString();
             Console.WriteLine(txt);
 
             // Conversão de string para enum
 
-            OrderStatus os = (OrderStatus)Enum.Parse(typeof(OrderStatus), "Delivered");
+            OrderStatus os = (OrderStatus)Enum.Parse(typeof(OrderStatus), "Entregue");
             Console.WriteLine(os);
 
             /*
@@ -189,6 +190,65 @@ namespace S9_EnumeracoesEComposicao
 
             Console.WriteLine(p1);
             Console.WriteLine(p2);
+        }
+
+        static void Ex3()
+        {
+            /*
+            Ler os dados de um pedido com N itens (N fornecido pelo usuário). Depois, mostrar um sumário do pedido. 
+
+            Nota: O instante do pedido deve ser o instante do sistema: DateTime.Now
+            */
+
+            Console.WriteLine("Entre com os dados do cliente: ");
+            Console.WriteLine();
+
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Data de nascimento: ");
+            DateTime nascimento = DateTime.Parse(Console.ReadLine());
+
+            Client cliente = new Client(nome, email, nascimento);
+
+            Console.WriteLine();
+            Console.WriteLine("Entre com os dados do pedido: ");
+            Console.WriteLine();
+            Console.Write("Status: ");
+            OrderStatus status = (OrderStatus)Enum.Parse(typeof(OrderStatus), Console.ReadLine());
+
+            Order pedido = new Order(1, DateTime.Now, status, cliente); 
+
+            Console.WriteLine();
+            Console.Write("Quantos itens serão incluídos no pedido? ");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            for (int i = 1; i <= N; i++)
+            {
+                Console.WriteLine($"Entre com os dados do item #{i}: ");
+                Console.WriteLine();
+
+                Console.Write("Nome do produto: ");
+                string nomeProd = Console.ReadLine();
+
+                Console.Write("Preço do produto: ");
+                double precoProd = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                Console.Write("Quantidade: ");
+                int quantidadeProd = int.Parse(Console.ReadLine());
+
+                Product produto = new Product(nomeProd, precoProd);
+                OrderItem item = new OrderItem(quantidadeProd, precoProd, produto);
+                pedido.AddItem(item);
+
+                Console.WriteLine();
+            }
+            Console.WriteLine(pedido);
+
         }
     }
 }
