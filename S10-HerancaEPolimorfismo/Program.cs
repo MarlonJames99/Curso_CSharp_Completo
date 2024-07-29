@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using S10_HerancaEPolimorfismo.Entities;
+using System.Globalization;
 
 namespace S10_HerancaEPolimorfismo
 {
@@ -16,6 +17,10 @@ namespace S10_HerancaEPolimorfismo
             Sobreposicao(); // Linha .
             ClasseEMetodosSelados(); // Linha .
             Polimorfismo(); // Linha .
+
+            // Exercícios
+
+            Ex1(); // Linha .
 
             Console.ReadLine();
         }
@@ -182,6 +187,74 @@ namespace S10_HerancaEPolimorfismo
 
             Console.WriteLine(acc1.Balance);
             Console.WriteLine(acc2.Balance);
+        }
+
+        // Exercícios
+
+        static void Ex1()
+        {
+            /*
+            Uma empresa possui funcionários próprios e terceirizados. Para cada funcionário, deseja-se registrar nome, horas trabalhadas e valor por hora.
+            Funcionários terceirizados possuem ainda uma despesa adicional.
+
+            O pagamento dos funcionários corresponde ao valor da hora multiplicado pelas horas trabalhadas, 
+            sendo que os funcionários terceirizados ainda recebem um bônus correspondente a 110% de sua despesa adicional.
+
+            Fazer um programa para ler os dados de N funcionários (N fornecido pelo usuário) e armazená-los em uma lista. 
+            Depois de ler todos os dados, mostrar nome e pagamento de cada funcionário na mesma ordem em que foram digitados.
+            */
+
+            List<Employee> list = new List<Employee>();
+
+            Console.Write("Entre com o número de funcionários: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Dados do funcionário #{i}");
+                Console.Write("Terceirizado? (y/n) ");
+                char ch = char.Parse(Console.ReadLine());
+
+                Console.Write("Nome: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Horas: ");
+                int hours = int.Parse(Console.ReadLine());
+
+                Console.Write("valor por hora: ");
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                if(ch == 'y')
+                {
+                    Console.Write("Custo adicional: ");
+                    double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    list.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
+                }
+                else
+                {
+                    list.Add(new Employee(name, hours, valuePerHour));
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Pagamentos: ");
+
+            foreach (Employee emp in list)
+            {
+                Console.WriteLine(emp.Name + " - $" + emp.Payment().ToString("F2", CultureInfo.InvariantCulture));
+            }
+        }
+
+        static void Ex2()
+        {
+            /*
+            Fazer um programa para ler os dados de N produtos (N fornecido pelo usuário). 
+            Ao final, mostrar a etiqueta de preço de cada produto na mesma ordem em que foram digitados.
+
+            Todo produto possui nome e preço. Produtos importados possuem uma taxa de alfândega, e produtos usados possuem data de fabricação.
+            Estes dados específicos devem ser acrescentados na etiqueta de preço. Para produtos importados, a taxa e alfândega deve ser acrescentada ao preço final do produto.
+            */
         }
     }
 }
