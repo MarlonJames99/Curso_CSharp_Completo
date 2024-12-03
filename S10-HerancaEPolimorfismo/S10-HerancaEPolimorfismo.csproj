@@ -46,8 +46,11 @@
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\BusinessAccount.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\ImportedProduct.cs" />
     <Compile Include="Entities\OutsourcedEmployee.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\SavingsAccount.cs" />
+    <Compile Include="Entities\UsedProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using S10_HerancaEPolimorfismo.Entities;
 using System.Globalization;
+using System.Diagnostics.Eventing.Reader;
 
 namespace S10_HerancaEPolimorfismo
 {
@@ -12,6 +13,7 @@ namespace S10_HerancaEPolimorfismo
     {
         static void Main(string[] args)
         {
+            
             Heranca(); // Linha .
             UpcastingEDowncasting(); // Linha .
             Sobreposicao(); // Linha .
@@ -21,6 +23,7 @@ namespace S10_HerancaEPolimorfismo
             // Exercícios
 
             Ex1(); // Linha .
+            Ex2(); // Linha .
 
             Console.ReadLine();
         }
@@ -251,10 +254,57 @@ namespace S10_HerancaEPolimorfismo
             /*
             Fazer um programa para ler os dados de N produtos (N fornecido pelo usuário). 
             Ao final, mostrar a etiqueta de preço de cada produto na mesma ordem em que foram digitados.
-
-            Todo produto possui nome e preço. Produtos importados possuem uma taxa de alfândega, e produtos usados possuem data de fabricação.
-            Estes dados específicos devem ser acrescentados na etiqueta de preço. Para produtos importados, a taxa e alfândega deve ser acrescentada ao preço final do produto.
+            
+            Todo Produto possui nome e preço. Produtos importados possuem uma taxa de alfândega, e produtos usados possuem data de fabricação.
+            Estes dados específicos devem ser acrescentados na etiqueta de preço conforme exemplo. 
+            Para produtos importados, a taxa de alfândega deve ser acrescentada ao preço final do produto.
             */
+
+            List<Product> list = new List<Product>();
+
+            Console.Write("Entre com a quantidade de produtos: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Dados do produto #{i}: ");
+
+                Console.Write("Comum, usado ou importado (c/u/i)? ");
+                string ch = Console.ReadLine();
+
+                Console.Write("nome: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Preço: ");
+                double price = double.Parse(Console.ReadLine() , CultureInfo.InvariantCulture);
+
+                if (ch == "u" || ch == "U")
+                {
+                    Console.Write("Data de fabricação (DD/MM/YYYY): ");
+                    DateTime manufactureDate = DateTime.Parse(Console.ReadLine());
+
+                    list.Add(new UsedProduct(name, price, manufactureDate));
+                }
+                else if (ch == "i" || ch == "I")
+                {
+                    Console.Write("Taxa de alfândega: ");
+                    double customsFee = double.Parse(Console.ReadLine() ,CultureInfo.InvariantCulture);
+
+                    list.Add(new ImportedProduct(name, price, customsFee));
+                }
+                else
+                {
+                    list.Add(new Product(name, price));
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Etiquetas de preço:");
+
+            foreach (Product prod in list)
+            {
+                Console.WriteLine(prod.PriceTag());
+            }
         }
     }
 }

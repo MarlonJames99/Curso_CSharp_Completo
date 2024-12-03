@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\bin\Debug\S10-HerancaEPolimorfismo.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\bin\Debug\S10-HerancaEPolimorfismo.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\bin\Debug\S10-HerancaEPolimorfismo.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\obj\Debug\S10-HerancaEPolimorfismo.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\obj\Debug\S10-HerancaEPolimorfismo.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\obj\Debug\S10-HerancaEPolimorfismo.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S10-HerancaEPolimorfismo\obj\Debug\S10-HerancaEPolimorfismo.pdb
