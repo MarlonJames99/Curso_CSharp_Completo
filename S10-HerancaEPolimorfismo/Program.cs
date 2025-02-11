@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using S10_HerancaEPolimorfismo.Entities;
+using S10_HerancaEPolimorfismo.Entities.Enums;
 using System.Globalization;
 using System.Diagnostics.Eventing.Reader;
 
@@ -19,6 +20,8 @@ namespace S10_HerancaEPolimorfismo
             Sobreposicao(); // Linha .
             ClasseEMetodosSelados(); // Linha .
             Polimorfismo(); // Linha .
+            ClassesAbstratas(); // Linha .
+            MetodosAbstratos(); // Linha .
 
             // Exercícios
 
@@ -190,6 +193,105 @@ namespace S10_HerancaEPolimorfismo
 
             Console.WriteLine(acc1.Balance);
             Console.WriteLine(acc2.Balance);
+        }
+
+        static void ClassesAbstratas()
+        {
+            /*
+            São classes que não podem ser instanciadas
+            É uma forma de garantir herança total: somente subclasses não abstratas podem ser instanciadas, mas nunca a superclasse abstrata.
+
+            Exemplo:
+
+            Suponha que em um negócio relacionado a banco, apenas contas poupança e contas para empresas são permitidas. Não existe conta comum.
+
+            Para garantir que contas comuns não possam ser instanciadas, basta acrescentarmos a palavra "abstract" na declaração da classe.
+
+            Notação UML: itálico
+            */
+
+            // Mesmo que declaremos a classe "Account" como Abstract, ela seguirá nos servindo para utilização de polimorfismo e herança.
+
+            List<Account> list = new List<Account>();
+
+            list.Add(new SavingsAccount(1001, "Alex", 500.0, 0.01));
+            list.Add(new BusinessAccount(1002, "Maria", 500.0, 400.0));
+            list.Add(new SavingsAccount(1003, "Bob", 500.0, 0.01));
+            list.Add(new BusinessAccount(1002, "Anna", 500.0, 500.0));
+
+            double sum = 0;
+
+            foreach (Account acc in list)
+            {
+                sum += acc.Balance;
+            }
+
+            Console.WriteLine("Saldo Total: " + sum.ToString("F2", CultureInfo.InvariantCulture));
+
+            foreach (Account acc in list)
+            {
+                acc.Withdraw(10.0);
+            }
+
+            foreach (Account acc in list)
+            {
+                Console.WriteLine("Saldo atualizado para a conta" + acc.Number + ": " + acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
+            }
+        }
+
+        static void MetodosAbstratos()
+        {
+            /*
+            São Métodos que não possuem implementação
+
+            Métodos precisam ser abstratos quando a classe é genérica demais para conter sua implementação.
+
+            Se uma classe possuir pelo menos um método abstrato, então esta classe também é abstrata.
+
+            Notação UML: Itálico
+
+            Fazer um programa para ler os dados de N figuras (N fornecido pelo usuário), e depois mostrar as áreas destas figuras na mesma ordem em que foram digitadas.
+            */
+
+            List<Shape> list = new List<Shape>();
+
+            Console.Write("Entre com o número de figuras: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Dados da figura #{i}");
+                Console.Write("Retângulo ou círculo (r/c)? ");
+                char ch = char.Parse(Console.ReadLine());
+
+                Console.Write("Cor (Black/Blue/Red): ");
+                Color color = (Color)Enum.Parse(typeof(Color), Console.ReadLine());
+
+                if(ch == 'r')
+                {
+                    Console.Write("Largura: ");
+                    double width = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    Console.Write("Altura: ");
+                    double height = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    list.Add(new Rectangle(width, height, color));
+                }
+                else
+                {
+                    Console.Write("Raio: ");
+                    double radius = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    list.Add(new Circle(radius, color));
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Área das figuras:");
+
+            foreach (Shape shape in list)
+            {
+                Console.WriteLine(shape.Area().ToString("F2", CultureInfo.InvariantCulture));
+            }
         }
 
         // Exercícios
