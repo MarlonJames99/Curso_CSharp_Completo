@@ -50,10 +50,13 @@
     <Compile Include="Entities\Enums\Color.cs" />
     <Compile Include="Entities\ImportedProduct.cs" />
     <Compile Include="Entities\OutsourcedEmployee.cs" />
+    <Compile Include="Entities\Pessoafisica.cs" />
+    <Compile Include="Entities\Pessoajuridica.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Rectangle.cs" />
     <Compile Include="Entities\SavingsAccount.cs" />
     <Compile Include="Entities\Shape.cs" />
+    <Compile Include="Entities\Taxpayer.cs" />
     <Compile Include="Entities\UsedProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
