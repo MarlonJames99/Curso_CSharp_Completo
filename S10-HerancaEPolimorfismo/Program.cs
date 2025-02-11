@@ -14,7 +14,7 @@ namespace S10_HerancaEPolimorfismo
     {
         static void Main(string[] args)
         {
-            /*
+            
             Heranca(); // Linha .
             UpcastingEDowncasting(); // Linha .
             Sobreposicao(); // Linha .
@@ -27,7 +27,6 @@ namespace S10_HerancaEPolimorfismo
 
             Ex1(); // Linha .
             Ex2(); // Linha .
-            */
             Ex3(); // Linha .
 
             Console.ReadLine();
