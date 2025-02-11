@@ -15,19 +15,19 @@ namespace S10_HerancaEPolimorfismo
         static void Main(string[] args)
         {
             
-            Heranca(); // Linha .
-            UpcastingEDowncasting(); // Linha .
-            Sobreposicao(); // Linha .
-            ClasseEMetodosSelados(); // Linha .
-            Polimorfismo(); // Linha .
-            ClassesAbstratas(); // Linha .
-            MetodosAbstratos(); // Linha .
+            Heranca(); // Linha 35.
+            UpcastingEDowncasting(); // Linha 68.
+            Sobreposicao(); // Linha 116.
+            ClasseEMetodosSelados(); // Linha 150.
+            Polimorfismo(); // Linha 176.
+            ClassesAbstratas(); // Linha 199.
+            MetodosAbstratos(); // Linha 243.
 
             // Exercícios
 
-            Ex1(); // Linha .
-            Ex2(); // Linha .
-            Ex3(); // Linha .
+            Ex1(); // Linha 300.
+            Ex2(); // Linha 355.
+            Ex3(); // Linha 413.
 
             Console.ReadLine();
         }
