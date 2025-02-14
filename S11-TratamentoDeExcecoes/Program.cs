@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using S11_TratamentoDeExcecoes.Entities;
+using S11_TratamentoDeExcecoes.Entities.Exceptions;
 
 namespace S11_TratamentoDeExcecoes
 {
@@ -95,6 +98,49 @@ namespace S11_TratamentoDeExcecoes
                 {
                     fs.Close();
                 }
+            }
+        }
+
+        static void ExcecoesPersonalizadas()
+        {
+            /*
+            Fazer um programa para ler os dados de uma reserva de hotel (n° do quarto, data de entrada e data de saída) e mostrar os dados da reserva, inclusive sua duração em dias.
+            Em seguida, ler novas datas de entrada e saída, atualizar a reserva, e mostrar novamente a reserva com os dados atualizados. 
+            O programa não deve aceitar dados inválidos para a reserva, conforme as seguintes regras:
+
+            - Alterações de reserva só podem ocorrer para datas futuras.
+            - A data de saída deve ser maior que a data de entrada.
+            */
+
+            try 
+            {
+                Console.Write("Número do quarto: ");
+                int number = int.Parse(Console.ReadLine());
+
+                Console.Write("Data do check-in (dd/MM/aaaa): ");
+                DateTime checkIn = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Data do check-out (dd/MM/aaaa): ");
+                DateTime checkOut = DateTime.Parse(Console.ReadLine());
+
+                Reservation reservation = new Reservation(number, checkIn, checkOut);
+                Console.WriteLine("Reserva: " + reservation);
+
+                Console.WriteLine();
+                Console.WriteLine("Entre com os dados para atualização da reserva:");
+
+                Console.Write("Data do check-in (dd/MM/aaaa): ");
+                checkIn = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Data do check-out (dd/MM/aaaa): ");
+                checkOut = DateTime.Parse(Console.ReadLine());
+
+                reservation.UpdateDates(checkIn, checkOut);
+                Console.WriteLine("Reserva: " + reservation);
+            }
+            catch(DomainException e)
+            {
+                Console.WriteLine("Erro na reserva: " + e.Message);
             }
         }
     }
