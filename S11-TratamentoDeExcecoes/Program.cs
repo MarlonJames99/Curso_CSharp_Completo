@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using S11_TratamentoDeExcecoes.Entities;
 using S11_TratamentoDeExcecoes.Entities.Exceptions;
+using System.Globalization;
 
 namespace S11_TratamentoDeExcecoes
 {
@@ -14,10 +16,17 @@ namespace S11_TratamentoDeExcecoes
     {
         static void Main(string[] args)
         {
-
+            /*
             Excecoes(); // Linha .
             EstruturaTryCatch(); // Linha .
             BlocoFinally(); // Linha .
+            ExcecoesPersonalizadas(); // Linha .
+            */
+            // Exercício de fixação:
+
+            Ex1(); // Linha .
+
+            Console.ReadLine();
         }
 
         static void Excecoes()
@@ -141,6 +150,56 @@ namespace S11_TratamentoDeExcecoes
             catch(DomainException e)
             {
                 Console.WriteLine("Erro na reserva: " + e.Message);
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine("Erro no formato: " + e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro inesperado: " + e.Message);
+            }
+        }
+
+        static void Ex1()
+        {
+            /*
+            Fazer um programa para ler os dados de uma conta bancária e depois realizar um saque nesta conta bancária, mostrando o novo saldo.
+            Um saque não pode ocorrer ou se não houver saldo na conta, ou se o valor do saque for superior ao limite de saque da conta.
+            */
+
+            Console.WriteLine("Entre com os dados da conta:");
+
+            Console.Write("Número: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.Write("Titular da conta: ");
+            string holder = Console.ReadLine();
+
+            Console.Write("Saldo inicial: ");
+            double balance = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Limite de saque: ");
+            double withdrawLimit = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Account account = new Account(number, holder, balance, withdrawLimit);
+
+            Console.WriteLine();
+            Console.Write("Entre com o valor para saque: ");
+            double amount = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            try
+            {
+                account.Withdraw(amount);
+                Console.WriteLine("Novo saldo: " + account.Balance.ToString("F2", CultureInfo.InvariantCulture));
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine("Falha no saque: " + e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro inesperado: " + e.Message);
             }
         }
     }

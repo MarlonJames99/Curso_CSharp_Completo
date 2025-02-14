@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Exceptions\DomainException.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Program.cs" />

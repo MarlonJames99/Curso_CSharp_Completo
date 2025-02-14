@@ -1,0 +1,7 @@
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\bin\Debug\S11-TratamentoDeExcecoes.exe.config
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\bin\Debug\S11-TratamentoDeExcecoes.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\bin\Debug\S11-TratamentoDeExcecoes.pdb
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\obj\Debug\S11-TratamentoDeExcecoes.csproj.AssemblyReference.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\obj\Debug\S11-TratamentoDeExcecoes.csproj.CoreCompileInputs.cache
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\obj\Debug\S11-TratamentoDeExcecoes.exe
+C:\Users\marlo\source\repos\CursoCSharpCompleto\S11-TratamentoDeExcecoes\obj\Debug\S11-TratamentoDeExcecoes.pdb
