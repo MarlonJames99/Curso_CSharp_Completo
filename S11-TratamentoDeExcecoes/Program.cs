@@ -16,12 +16,12 @@ namespace S11_TratamentoDeExcecoes
     {
         static void Main(string[] args)
         {
-            /*
+            
             Excecoes(); // Linha .
             EstruturaTryCatch(); // Linha .
             BlocoFinally(); // Linha .
             ExcecoesPersonalizadas(); // Linha .
-            */
+            
             // Exercício de fixação:
 
             Ex1(); // Linha .
